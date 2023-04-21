@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExamGPT</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="body-width">
+      <div class="welcome-section">
+        <h1>Question Generator</h1>
+        <p>
+          Please select a difficulty, a style and a topic. I will then generate
+          a question for you :)
+        </p>
+      </div>
+      <div class="chatbox-container">
+        <div class="chatbox-message chatbox-message-chatbot">
+          <p class="chatbox-message-chatbot-internal">ExamGPT: Hi there! What can I help you with today?</p>
+        </div>
+      </div>
+      <div class="chatbox-input-container">
+        <input
+          type="text"
+          class="chatbox-input"
+          placeholder="Type your message here..."
+        />
+        <button class="chatbox-send-button">Send</button>
+      </div>
+      <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </div>
+  </body>
+</html>
