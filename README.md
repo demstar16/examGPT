@@ -7,7 +7,7 @@
 - [x] Set up routes in Flask to handle different HTTP requests. 
 - [ ] Set Up Log In / Account features
 - [ ] Proper design or the web page (make it look nice)
-- [ ] Create / Find a proper chatbot for questions
+- [x] Create / Find a proper chatbot for questions
 - [ ] Filters / Options for Difficulty & Style of Question (high school level mmulti-choice question), this will probably just come with the bot if we use chatGPT
 - [ ] Create a database schema to store chat messages, user information, and exam questions.
 - [ ] Add an admin page
