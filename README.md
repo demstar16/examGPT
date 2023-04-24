@@ -1,4 +1,40 @@
 # cits3403-project
+
+## How to setup:
+1. Make sure python and pip are installed
+
+2. Create your own python virtual environment by typing the following:
+```bash
+python3 -m venv venv
+```
+
+3. Connect to the virtual environment:
+```bash
+source /venv/bin/activate (The path to your activate file)
+```
+
+4. Check if you have connected correctly:
+```bash
+which python3
+/home/adam/OneDrive/SEM12023/CITS3404 Agile Web Development/cits3403-project/venv/bin/python3
+```
+This should display the path to the project if connected correctly.
+
+4. Install dependencies. (If new dependencies are added to the project, add them to the requirements.txt file):
+```bash
+pip install -r requirements.txt
+```
+
+5. Run the flask app:
+```bash
+flask run
+```
+6. When you are done in the python virtual environment. Type:
+```bash
+deactivate
+```
+This will change your python environment back to the default location.
+
 ## TO DO:
 - [x] Create development environment
 - [x] Create a Flask app that will serve as the backend of the chat application.
