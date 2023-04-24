@@ -4,19 +4,35 @@
 1. Make sure python and pip are installed
 
 2. Create your own python virtual environment by typing the following:
+Linux/MacOS
 ```bash
 python3 -m venv venv
 ```
+Windows
+```bash
+python3 -m venv env
+```
 
 3. Connect to the virtual environment:
+Linux/MacOS
 ```bash
 source /venv/bin/activate (The path to your activate file)
 ```
+Windows (CMD)
+```bash
+env\Scripts\activate
+```
 
 4. Check if you have connected correctly:
+Linux/MacOS
 ```bash
 which python3
 /home/adam/OneDrive/SEM12023/CITS3404 Agile Web Development/cits3403-project/venv/bin/python3
+```
+
+Windows (CMD)
+```bash
+where python
 ```
 This should display the path to the project if connected correctly.
 
