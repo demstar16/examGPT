@@ -3,7 +3,7 @@
 ## How to setup:
 1. Make sure python and pip are installed
 
-2. Create your own python virtual environment by typing the following:
+2. Create your own python virtual environment by typing the following:  
 Linux/MacOS
 ```bash
 python3 -m venv venv
@@ -13,7 +13,7 @@ Windows
 python3 -m venv env
 ```
 
-3. Connect to the virtual environment:
+3. Connect to the virtual environment:  
 Linux/MacOS
 ```bash
 source /venv/bin/activate (The path to your activate file)
@@ -23,7 +23,7 @@ Windows (CMD)
 env\Scripts\activate
 ```
 
-4. Check if you have connected correctly:
+4. Check if you have connected correctly:  
 Linux/MacOS
 ```bash
 which python3
@@ -36,7 +36,8 @@ where python
 ```
 This should display the path to the project if connected correctly.
 
-4. Install dependencies. (If new dependencies are added to the project, add them to the requirements.txt file):
+4. Install dependencies.  
+(If new dependencies are added to the project, add them to the requirements.txt file):
 ```bash
 pip install -r requirements.txt
 ```
