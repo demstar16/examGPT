@@ -7,6 +7,7 @@ function sendMessage() {
 
   if (message !== "") {
     displayMessage("You", message, true); // Display user's message
+    scrollToBottom();
 
     // Send the message to the chatbot
     // a function inside "app.py"
@@ -20,12 +21,7 @@ function sendMessage() {
       .then((response) => response.json())
       .then((data) => {
         displayMessage("ExamGPT", data.message, false); // Display chatbot's response
-
-        // Scroll to the bottom of the chatbox
-        chatContainer.scrollTop = chatContainer.scrollHeight;
-
-        // Call sendMessage again to prompt the user for another message
-        sendMessage();
+        scrollToBottom();
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -46,16 +42,22 @@ messageInput.addEventListener("keydown", (event) => {
 // function determine which side of the chatbox container to display the message
 // left for bot & right or user
 function displayMessage(sender, message, isUser) {
+  const formattedMessage = message.replace(/\n/g, "<br>");
   const messageDiv = document.createElement("div");
   messageDiv.classList.add("chatbox-message");
 
   if (isUser) {
     messageDiv.classList.add("chatbox-message-user");
-    messageDiv.innerHTML = `<p class="chatbox-message-user-internal">${sender}: ${message}</p>`;
+    messageDiv.innerHTML = `<p class="chatbox-message-user-internal">${sender}: ${formattedMessage}</p>`;
   } else {
     messageDiv.classList.add("chatbox-message-chatbot");
-    messageDiv.innerHTML = `<p class="chatbox-message-chatbot-internal">${sender}: ${message}</p>`;
+    messageDiv.innerHTML = `<p class="chatbox-message-chatbot-internal">${sender}: ${formattedMessage}</p>`;
   }
 
   chatContainer.appendChild(messageDiv);
+}
+
+// Function to automatically scroll to the bottom of the chatbox when a new message arrives
+function scrollToBottom() {
+  chatContainer.scrollTop = chatContainer.scrollHeight;
 }
