@@ -1,38 +1,38 @@
 from flask import Flask, request, jsonify, render_template
-import openai
+from gpt_api import ExamGPT_conversation
 
 app = Flask(__name__)
-
-# Set your OpenAI API key as an environment variable
-API_KEY = "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"
-openai.api_key = API_KEY
-model_id = "gpt-3.5-turbo"
 
 # function to render HTML page
 @app.route('/')
 def home():
     return render_template('index.html')
 
+# Initialize the conversation
+global_conversation = [
+    {
+        "role": "system",
+        "content": "Your name is ExamGPT. You are a chat bot that generates exam questions and helps students with their exam problems. If a student gives you a topic, you reply with exam questions. If they ask you a question, you will help them solve their exam question."
+    }
+]
+
 # function for the chatbot
 @app.route('/chatbot', methods=['POST'])
 def chatbot():
+    global global_conversation
     message = request.json['message']
     print("Received message:", message)
 
-    # Define the chatbot's response
-    response = openai.ChatCompletion.create(
-        model=model_id,
-        messages=[{"role":"user",
-                   "content": message}]
-    )
- 
-    # Extract the response text from the API response
-    response_text = response["choices"][0]["message"]["content"]
+    # Add user message to conversation
+    global_conversation.append({"role": "user", "content": message})
 
-    print(response_text)
+    # Get the ExamGPT response
+    global_conversation = ExamGPT_conversation(global_conversation)
 
-    # Return the response to the user
-    return jsonify({"message": response_text, "role": "assistant"})
+    # Extract the response
+    response = global_conversation[-1]['content'].strip()
+
+    return jsonify({'message': response})
 
 
 if __name__ == '__main__':
