@@ -21,16 +21,18 @@ global_conversation = [
 def chatbot():
     global global_conversation
     message = request.json['message']
-    print("Received message:", message)
+    print("User:", message)
 
     # Add user message to conversation
     global_conversation.append({"role": "user", "content": message})
 
     # Get the ExamGPT response
     global_conversation = ExamGPT_conversation(global_conversation)
+    
 
     # Extract the response
     response = global_conversation[-1]['content'].strip()
+    print("ExamGPT:", response)
 
     return jsonify({'message': response})
 
