@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExamGPT</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+
+  <body>
+    <div class="body-width">
+        <h1 style="text-align: center;">ExamGPT</h1>
+        <div class="login-container">
+            <form>
+                <label for="email">Email:</label><br>
+                <input type="text" class="login-input" name="email"><br>
+                <label for="password">Password:</label><br>
+                <input type="text" class="login-input" name="password"><br><br>
+                <input type="submit" class="login-buttons" value="Login">
+                <button class="login-buttons" type="button" style="float: right">Create Account</button>
+            </form>
+        </div>
+    </div>
+  </body>
+
+</html>
