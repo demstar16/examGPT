@@ -17,6 +17,11 @@ def home():
 def login():
     return render_template('login.html')
 
+# function to render register page
+@app.route('/register')
+def register():
+    return render_template('register.html')
+
 # Initialize the conversation
 global_conversation = [
     {
