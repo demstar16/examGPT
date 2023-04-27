@@ -1,11 +1,11 @@
 from flask import Flask, request, jsonify, render_template
 from gpt_api import ExamGPT_conversation
-from flask_login import LoginManager, current_user, login_user
+#from flask_login import LoginManager, current_user, login_user
 #from app.models import User
 
 app = Flask(__name__)
 
-login = LoginManager(app)
+#login = LoginManager(app)
 
 # function to render HTML page
 @app.route('/')
