@@ -17,11 +17,6 @@ def home():
 def login():
     return render_template('login.html')
 
-# function to render chatlog history
-@app.route('/history')
-def history():
-    return render_template('history.html')
-
 # Initialize the conversation
 global_conversation = [
     {

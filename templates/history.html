@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('history') }}">History</a>
+    </nav>
+    <div class="body-width">
+        <section class="welcome-section">
+            <h1>Welcome, [username]</h1>
+            <p>Here is your conversations with ExamGPT.</p>
+        </section>
+        <div class="chatbox-container">
+            <!-- Use a loop or template engine to display messages from the database -->
+            <div class="chatbox-message chatbox-message-user">
+                <p>User message</p>
+            </div>
+            <div class="chatbox-message chatbox-message-chatbot">
+                <p>ExamGPT message</p>
+            </div>
+            <!-- ... -->
+        </div>
+    
+        <!-- Buttons to navigate between conversations -->
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+            <button class="navigation-button" onclick="previousConversation()">Previous Conversation</button>
+            <button class="navigation-button" onclick="nextConversation()">Next Conversation</button>
+        </div>
+    </div>
+    
+    <script>
+        function previousConversation() {
+            // Implement functionality to load the previous conversation
+        }
+        
+        function nextConversation() {
+            // Implement functionality to load the next conversation
+        }
+    </script>
+</body>
+</html>    
