@@ -9,6 +9,14 @@ function sendMessage() {
     displayMessage("You", message, true); // Display user's message
     scrollToBottom();
 
+    // Disable input and button while ExamGPT is thinking.
+    messageInput.disabled = true;
+    sendButton.disabled = true;
+
+    // Display loading message
+    const loadingMessage = displayLoadingMessage("ExamGPT", "Thinking...");
+    scrollToBottom();
+
     // Send the message to the chatbot
     // a function inside "app.py"
     fetch("/chatbot", {
@@ -20,11 +28,22 @@ function sendMessage() {
     })
       .then((response) => response.json())
       .then((data) => {
+        // Remove loading message
+        chatContainer.removeChild(loadingMessage);
+
         displayMessage("ExamGPT", data.message, false); // Display chatbot's response
         scrollToBottom();
+
+        // Re-enable input and button
+        messageInput.disabled = false;
+        sendButton.disabled = false;
       })
       .catch((error) => {
         console.error("Error:", error);
+
+        // Re-enable input and button
+        messageInput.disabled = false;
+        sendButton.disabled = false;
       });
 
     messageInput.value = "";
@@ -60,4 +79,16 @@ function displayMessage(sender, message, isUser) {
 // Function to automatically scroll to the bottom of the chatbox when a new message arrives
 function scrollToBottom() {
   chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+function displayLoadingMessage(sender, message) {
+  const formattedMessage = message.replace(/\n/g, "<br>");
+  const messageDiv = document.createElement("div");
+
+  messageDiv.classList.add("chatbox-message", "chatbox-message-chatbot");
+  messageDiv.innerHTML = `<p class="chatbox-message-chatbot-internal">${sender}: ${formattedMessage}</p>`;
+
+  chatContainer.appendChild(messageDiv);
+
+  return messageDiv;
 }
