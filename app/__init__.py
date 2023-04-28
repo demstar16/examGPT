@@ -1,10 +1,18 @@
 from flask import Flask, request, jsonify, render_template
-from gpt_api import ExamGPT_conversation
+from .gpt_api import ExamGPT_conversation
+from config import Config
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 #from flask_login import LoginManager, current_user, login_user
 #from app.models import User
 #from app.forms import RegistrationForm
 
 app = Flask(__name__)
+app.config.from_object(Config)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
+from app import models
 
 #login = LoginManager(app)
 
