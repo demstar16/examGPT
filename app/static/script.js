@@ -14,7 +14,7 @@ function sendMessage() {
     sendButton.disabled = true;
 
     // Display loading message
-    const loadingMessage = displayLoadingMessage("ExamGPT", "Thinking...");
+    const { loadingMessage, loadingInterval } = displayLoadingMessage("ExamGPT", "Thinking");
     scrollToBottom();
 
     // Send the message to the chatbot
@@ -81,14 +81,25 @@ function scrollToBottom() {
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
+// Function to display the loading message for ExamGPT
 function displayLoadingMessage(sender, message) {
   const formattedMessage = message.replace(/\n/g, "<br>");
+  const initialSpaces = "&nbsp;".repeat(3);
   const messageDiv = document.createElement("div");
 
   messageDiv.classList.add("chatbox-message", "chatbox-message-chatbot");
-  messageDiv.innerHTML = `<p class="chatbox-message-chatbot-internal">${sender}: ${formattedMessage}</p>`;
+  messageDiv.innerHTML = `<p class="chatbox-message-chatbot-internal">${sender}: ${formattedMessage}${initialSpaces}</p>`;
 
   chatContainer.appendChild(messageDiv);
 
-  return messageDiv;
+  // Dot animation
+  let dots = 0;
+  const loadingInterval = setInterval(() => {
+    dots = (dots + 1) % 4;
+    const dotString = ".".repeat(dots);
+    const spaceString = "&nbsp;".repeat(3 - dots);
+    messageDiv.innerHTML = `<p class="chatbox-message-chatbot-internal">${sender}: ${message}${dotString}${spaceString}</p>`;
+  }, 500);
+
+  return { loadingMessage: messageDiv, loadingInterval: loadingInterval };
 }
