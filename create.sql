@@ -10,9 +10,10 @@ CREATE TABLE conversation_data (
     FOREIGN KEY (customer_id) REFERENCES customer_data(customer_id)
 );
 CREATE TABLE chat_message_data (
-    conversation_id INTEGER,
+    conversation_id INTEGER NOT NULL,
     message_number INTEGER NOT NULL,
     sender TEXT NOT NULL,
     message TEXT NOT NULL,
-    FOREIGN KEY (conversation_id) REFERENCES conversation_data(conversation_id)
+    PRIMARY KEY (conversation_id, message_number),
+    FOREIGN KEY (conversation_id) REFERENCES conversation_data (conversation_id)
 );
