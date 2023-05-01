@@ -18,8 +18,7 @@ class conversation_data(db.Model):
 
 class chat_message_data(db.Model):
     message_id = db.Column(db.Integer, primary_key=True)
-    conversation_id = db.Column(db.Integer, db.ForeignKey('conversation_data.conversation_id'))
-    message_number = db.Column(db.Integer)
+    conversation_id = db.Column(db.Integer, db.ForeignKey('conversation_data.conversation_id'), primary_key=True)
     sender = db.Column(db.String(8)) #Either User or Chat
     message = db.Column(db.String(1024)) #Whats the max message length?
 
