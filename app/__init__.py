@@ -41,6 +41,7 @@ def login():
         return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
 
+
 # function to render register page
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -60,7 +61,11 @@ def register():
 @app.route('/history')
 @login_required
 def history():
-    return render_template('history.html')
+    if current_user.is_authenticated:
+        email = current_user.email
+        return render_template('history.html', email=email)
+    else:
+        return "You are not logged in"
 
 #logout current user
 @app.route('/logout')
