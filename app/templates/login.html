@@ -10,24 +10,24 @@
   </head>
 
   <body>
+    <div class="background"></div>
     <!-- Navigation bar -->
     <nav class="navbar">
+      {% if current_user.is_anonymous %}
+      <a href="{{ url_for('register') }}">Register</a>
+      {% else %}
       <a href="{{ url_for('home') }}">Home</a>
       <a href="{{ url_for('history') }}">History</a>
-      {% if current_user.is_anonymous %}
-      <a href="{{ url_for('login') }}">Login</a>
-      {% else %}
       <a href="{{ url_for('logout') }}">Logout</a>
       {% endif %}
-      <a href="{{ url_for('register') }}">Register</a>
     </nav>
     <div class="body-width">
       <div class="welcome-section">
-        <h1 style="text-align: center;">ExamGPT</h1>
-        <b>
+        <h1 style="text-align: center;">LOGIN</h1>
+        <p>
           ExamGPT is an intelligent chatbot designed to generate exam questions and provide assistance to 
           students by helping them solve complex problems, tailored to their learning needs and subject areas.
-        </b>
+        </p>
       </div>
       <div id="login-container" class="login-container">
         <form action="" method="post" novalidate>
@@ -46,5 +46,6 @@
         <a href="/register" class="button-link">Don't have an account? Sign up now</a>
       </div>
     </div>
+    <script src="{{ url_for('static', filename='particles.js') }}"></script>
   </body>
 </html>

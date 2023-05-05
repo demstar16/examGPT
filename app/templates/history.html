@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
+    <div class="background"></div>
     <!-- Navigation bar -->
     <nav class="navbar">
         <a href="{{ url_for('home') }}">Home</a>
@@ -16,7 +17,6 @@
         {% else %}
         <a href="{{ url_for('logout') }}">Logout</a>
         {% endif %}
-        <a href="{{ url_for('register') }}">Register</a>
       </nav>
     <div class="body-width">
         <section class="welcome-section">
@@ -39,6 +39,7 @@
             <button class="navigation-button" onclick="previousConversation()">Previous Conversation</button>
             <button class="navigation-button" onclick="nextConversation()">Next Conversation</button>
         </div>
+        <script src="{{ url_for('static', filename='particles.js') }}"></script>
     </div>
     
     <script>
