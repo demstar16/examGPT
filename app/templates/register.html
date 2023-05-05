@@ -27,6 +27,7 @@
           students by helping them solve complex problems, tailored to their learning needs and subject areas.
         </p>
       </div>
+      <!--Login field container-->
         <div class="login-container">
           <form action="" method="post">
             {{ form.hidden_tag() }}
@@ -57,6 +58,7 @@
                 {% endfor %}
               </div>
             </div>
+            <!--I cannot figure out why this is not aligning to the right side of the input fields-->
             <div class="form-field">
               <button type="submit" class="login-buttons">{{ form.submit.label }}</button>
             </div>
