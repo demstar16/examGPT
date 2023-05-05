@@ -58,14 +58,19 @@ This will change your python environment back to the default location.
 - [x] Design the user interface of the chat application using HTML and CSS. The UI should have a chatbox, a message input field, and a send button.
 - [x] Use JQuery to handle user interactions on the front-end.
 - [x] Set up routes in Flask to handle different HTTP requests. 
-- [ ] Set Up Log In / Account features
-- [ ] Proper design or the web page (make it look nice)
+- [x] Set Up Log In / Account features
+- [x] Proper design or the web page (make it look nice)
 - [x] Create / Find a proper chatbot for questions
 - [ ] Filters / Options for Difficulty & Style of Question (high school level mmulti-choice question), this will probably just come with the bot if we use chatGPT
-- [ ] Create a database schema to store chat messages, user information, and exam questions.
-- [ ] Add an admin page
-- [ ] Implement authentication to ensure that only registered users can access the chat application.
+- [x] Create a database schema to store chat messages, user information, and exam questions.
+- [ ] Add an admin page to manage accounts (only we know the admin login details)
+- [x] Implement authentication to ensure that only registered users can access the chat application.
 - [ ] Test the application thoroughly to ensure that it meets the functional requirements.
 - [ ] Deploy the application on a server.
+- [ ] Create Unit Tests
+- [ ] Add an alert for the logout button (a way so if u accidently click it you're not just logged out)
+- [ ] Add constraints to make the bot more specific, so its not just chatGPT (if that makes sense)
+- [ ] Forgot password functionality
+- [ ] Automatically delete conversations that are 6 months old?? potentially with a cron job (not sure if this is something we want to do)
 
 
