@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
   </head>
   <body>
+    <div class="background"></div>
     <!-- Navigation bar -->
     <nav class="navbar">
       <a href="{{ url_for('home') }}">Home</a>
@@ -45,6 +46,7 @@
         <button class="chatbox-send-button">Send</button>
       </div>
       <script src="{{ url_for('static', filename='script.js') }}"></script>
+      <script src="{{ url_for('static', filename='particles.js') }}"></script>
     </div>
   </body>
 </html>
