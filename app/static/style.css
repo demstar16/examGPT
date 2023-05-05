@@ -89,7 +89,6 @@ body {
   border-radius: 5px;
   padding: 10px;
   cursor: pointer;
-  z-index: 2;
 }
 
 .login-container a {

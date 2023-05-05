@@ -32,16 +32,18 @@
       <div id="login-container" class="login-container">
         <form action="" method="post" novalidate>
           {{ form.hidden_tag() }}
-          <p>
-              {{ form.email.label }}<br>
-              {{ form.email(size=32) }}
-          </p>
-          <p>
-              {{ form.password.label }}<br>
-              {{ form.password(size=32) }}
-          </p>
+          <div class="form-field">
+            <label for="{{ form.email.id }}">{{ form.email.label }}</label>
+            {{ form.email(id=form.email.id, class_='form-control') }}
+          </div>
+          <div class="form-field">
+            <label for="{{ form.password.id }}">{{ form.password.label }}</label>
+            {{ form.password(id=form.password.id, class_='form-control') }}
+          </div>
           <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-          <p>{{ form.submit() }}</p>
+          <div class="form-field">
+            <button type="submit" class="login-buttons">{{ form.submit.label }}</button>
+          </div>
       </form>
         <a href="/register" class="button-link">Don't have an account? Sign up now</a>
       </div>
