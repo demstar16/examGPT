@@ -12,4 +12,4 @@ venvArch/
 # Ignore log files and databases
 *.log
 *.sqlite
-
+*.db
