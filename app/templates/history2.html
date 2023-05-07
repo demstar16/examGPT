@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div class="background"></div>
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('history') }}">History</a>
+        {% if current_user.is_anonymous %}
+        <a href="{{ url_for('login') }}">Login</a>
+        {% else %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+      </nav>
+    <div class="body-width">
+        <section class="welcome-section">
+            <h1>Welcome, {{ email }}!</h1>
+            <p>Here is your conversations with ExamGPT.</p>
+        </section>
+        
+        <table>
+            <tr class="login-container"><td>New conversation</td></tr>
+            {% for c in conversations%}
+            <tr class="login-container">
+                <td>{{c['conversation_name']}}</td>
+                <td>Rename</td>
+                <td>Continue</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <script src="{{ url_for('static', filename='particles.js') }}"></script>
+    </div>
+    
+    <script>
+        function previousConversation() {
+            // Implement functionality to load the previous conversation
+        }
+        
+        function nextConversation() {
+            // Implement functionality to load the next conversation
+        }
+    </script>
+</body>
+</html>    

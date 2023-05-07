@@ -18,6 +18,9 @@ class customer_data(UserMixin, db.Model):
     
     def get_id(self):
         return self.customer_id
+    
+    def get_conversations(self):
+        return conversation_data.query.filter_by(customer_id=self.customer_id).all()
 
 class conversation_data(db.Model):
     conversation_id = db.Column(db.Integer, primary_key=True)

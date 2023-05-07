@@ -61,11 +61,8 @@ def register():
 @app.route('/history')
 @login_required
 def history():
-    if current_user.is_authenticated:
-        email = current_user.email
-        return render_template('history.html', email=email)
-    else:
-        return "You are not logged in"
+    return render_template('history2.html', email=current_user.email, conversations=current_user.get_conversations())
+    #return render_template('history.html', email=current_user.email)
 
 #logout current user
 @app.route('/logout')
