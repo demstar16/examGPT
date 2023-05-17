@@ -108,5 +108,7 @@ function displayLoadingMessage(sender, message) {
 function confirmLogout() {
   if (confirm("Are you sure you want to log out?")) {
       window.location.href = "/logout";
+  } else {
+    return false; // Cancels the click event
   }
 }
