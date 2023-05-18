@@ -67,8 +67,8 @@ This will change your python environment back to the default location.
 - [x] Implement authentication to ensure that only registered users can access the chat application.
 - [ ] Test the application thoroughly to ensure that it meets the functional requirements.
 - [ ] Deploy the application on a server.
-- [ ] Create Unit Tests
-- [ ] Add an alert for the logout button (a way so if u accidently click it you're not just logged out)
+- [x] Create Unit Tests
+- [x] Add an alert for the logout button (a way so if u accidently click it you're not just logged out)
 - [ ] Add constraints to make the bot more specific, so its not just chatGPT (if that makes sense)
 - [ ] Forgot password functionality
 - [ ] Automatically delete conversations that are 6 months old?? potentially with a cron job (not sure if this is something we want to do)
