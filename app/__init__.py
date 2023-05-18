@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, flash, redirect, url_for
+from flask import Flask, request, jsonify, render_template, flash, redirect, url_for, session
 from .gpt_api import ExamGPT_conversation
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
@@ -21,6 +21,7 @@ from app.forms import LoginForm, RegistrationForm
 @app.route('/')
 @login_required
 def home():
+    flash("Welcome home")
     return render_template('index.html')
 
 # function to render login page
@@ -53,7 +54,7 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Congratulations, you are now a registered user!')
+        flash('Registration successful')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
@@ -68,6 +69,7 @@ def history():
 @app.route('/logout')
 def logout():
     logout_user()
+    flash("You have been logged out")
     return redirect(url_for('login'))
 
 # Initialize the conversation
