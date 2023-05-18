@@ -19,6 +19,17 @@
         {% endif %}
       </nav>
     <div class="body-width">
+        <!-- Display flash messages -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="flashes">
+            {% for message in messages %}
+            <div class="flash">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        
         <section class="welcome-section">
             <h1>Welcome, {{ email }}!</h1>
             <p>Here is your conversations with ExamGPT.</p>
