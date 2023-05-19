@@ -35,19 +35,19 @@
             <p>Here is your conversations with ExamGPT.</p>
         </section>
         
-        <table>
-            <tr class="login-container"><td>New conversation</td></tr>
+        <table class="chatbox-container">
+            <button class="new-conversation-button">New conversation</button>
             {% for c in conversations%}
-            <tr class="login-container">
-                <td>{{c['conversation_name']}}</td>
-                <button class="history-rename-button">Rename</button>
-                <a href="{{ url_for('chat', conversation_id=c['conversation_id']) }}">Continue</a>
+            <tr>
+                <td><p>{{c['conversation_name']}}</p></td>
+                <td><button class="history-rename-button">Rename</button></td>
+                <td><a href="{{ url_for('chat', conversation_id=c['conversation_id']) }}">Continue</a></td>
+                <td><button class="history-delete-button" onclick="deleteConversation( {{ c['conversation_id'] }} )">Delete</button></td>
             </tr>
             {% endfor %}
         </table>
 
         <script src="{{ url_for('static', filename='particles.js') }}"></script>
-        <script src="{{ url_for('static', filename='script.js') }}"></script>
         <script src="{{ url_for('static', filename='history_script.js') }}"></script>
     </div>
 </body>

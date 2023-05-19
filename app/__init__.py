@@ -115,6 +115,19 @@ def chatbot(conversation_id):
 
     return jsonify({'message': response})
 
+@app.route('/newConversation', methods=['POST'])
+def newConversation():
+    conversation = conversation_data(customer_id=current_user.customer_id, conversation_name="New Conversation")
+    db.session.add(conversation)
+    db.session.commit()
+    return jsonify({'id': conversation.conversation_id})
+
+@app.route('/deleteConversation', methods=['DELETE'])
+def deleteConversation():
+    conversation_id = request.json['conversationId']
+    conversation_data.query.filter_by(conversation_id=conversation_id).delete()
+    db.session.commit()
+    return 'ok'
 
 
 if __name__ == '__main__':

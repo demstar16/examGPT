@@ -1,71 +1,61 @@
+const newConversationButton = document.querySelector(".new-conversation-button");
 const renameButton = document.querySelector(".history-rename-button");
-const continueButton = document.querySelector(".history-continue-button");
+const table = document.querySelector(".chatbox-container");
 
-function sendMessage() {
-  const message = messageInput.value.trim();
-
-  if (message !== "") {
-    displayMessage("You", message, true); // Display user's message
-    scrollToBottom();
-
-    // Disable input and button while ExamGPT is thinking.
-    messageInput.disabled = true;
-    sendButton.disabled = true;
-
-    // Display loading message
-    const { loadingMessage, loadingInterval } = displayLoadingMessage("ExamGPT", "Thinking");
-    scrollToBottom();
-
-    // Send the message to the chatbot
-    // a function inside "app.py"
-    fetch("/chatbot", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ message }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Remove loading message
-        chatContainer.removeChild(loadingMessage);
-
-        displayMessage("ExamGPT", data.message, false); // Display chatbot's response
-        scrollToBottom();
-
-        // Re-enable input and button
-        messageInput.disabled = false;
-        sendButton.disabled = false;
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-
-        // Re-enable input and button
-        messageInput.disabled = false;
-        sendButton.disabled = false;
-      });
-
-    messageInput.value = "";
-  }
+function newConversation() {
+  // Create new conversation in the database
+  fetch("/newConversation", {
+    method: "POST"
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    displayConversation("New Conversation", data["id"]);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
 }
 
-renameButton.addEventListener("click", sendMessage);
-continueButton.addEventListener("click", sendMessage);
+function renameConversation() {
+}
 
-// function determine which side of the chatbox container to display the message
-// left for bot & right or user
-function displayMessage(sender, message, isUser) {
-  const formattedMessage = message.replace(/\n/g, "<br>");
-  const messageDiv = document.createElement("div");
-  messageDiv.classList.add("chatbox-message");
+function deleteConversation(conversationId) {
+  // Delete a conversation in the database
+  fetch("/deleteConversation", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ conversationId }),
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
 
-  if (isUser) {
-    messageDiv.classList.add("chatbox-message-user");
-    messageDiv.innerHTML = `<p class="chatbox-message-user-internal">${sender}: ${formattedMessage}</p>`;
-  } else {
-    messageDiv.classList.add("chatbox-message-chatbot");
-    messageDiv.innerHTML = `<p class="chatbox-message-chatbot-internal">${sender}: ${formattedMessage}</p>`;
-  }
+  //Need to delete conversation from page somehow
+}
 
-  chatContainer.appendChild(messageDiv);
+newConversationButton.addEventListener("click", newConversation);
+renameButton.addEventListener("click", renameConversation);
+
+function displayConversation(conversationName, conversationId) {
+  const tr = table.insertRow(-1);
+
+  const td = document.createElement("tr");
+  td.innerHTML = conversationName;
+
+  const rename = document.createElement("button");
+  rename.innerHTML = "Rename";
+
+  const a = document.createElement("a");
+  a.href = `/index/${conversationId}`;
+  a.innerHTML = "Continue";
+
+  const delet = document.createElement("button");
+  delet.innerHTML = "Delete";
+
+  tr.insertCell(td);
+  tr.insertCell(button);
+  tr.insertCell(a);
+  tr.insertCell(delet);
 }
