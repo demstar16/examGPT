@@ -16,7 +16,21 @@ function newConversation() {
   });
 }
 
-function renameConversation() {
+function renameConversation(conversationId) {
+  // rename a conversation in the database
+  var newName = window.prompt("Enter the new conversation name:");
+  fetch("/renameConversation", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ conversationId, newName }),
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+  //Reload webpage after update
+  location.reload();
 }
 
 function deleteConversation(conversationId) {

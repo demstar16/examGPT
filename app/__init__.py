@@ -129,6 +129,15 @@ def deleteConversation():
     db.session.commit()
     return 'ok'
 
+@app.route('/renameConversation', methods=['POST'])
+def renameConversation():
+    conversation_id = request.json['conversationId']
+    new_name = request.json['newName']
+    #UPDATE conversationData SET conversation_name=new_name WHERE conversationData.conversation_id=conversation_id
+    conversation_data.query.filter_by(conversation_id=conversation_id).update({'conversation_name':new_name})
+    db.session.commit() #Commit db changes
+    return 'ok'
+
 
 if __name__ == '__main__':
     app.run(debug=True)
