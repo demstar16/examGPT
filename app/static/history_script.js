@@ -31,8 +31,7 @@ function deleteConversation(conversationId) {
   .catch((error) => {
     console.error("Error:", error);
   });
-
-  //Need to delete conversation from page somehow
+  location.reload();
 }
 
 newConversationButton.addEventListener("click", newConversation);
