@@ -21,6 +21,8 @@ class customer_data(UserMixin, db.Model):
     
     def get_conversations(self):
         return conversation_data.query.filter_by(customer_id=self.customer_id).all()
+    
+    
 
 class conversation_data(db.Model):
     conversation_id = db.Column(db.Integer, primary_key=True)
@@ -29,10 +31,20 @@ class conversation_data(db.Model):
 
     def __repr__(self):
         return '<Conversation {}>'.format(self.conversation_name)
+    
+    def get_messages(self):
+        return chat_message_data.query.filter_by(conversation_id=self.conversation_id).order_by(chat_message_data.message_number).all()
+    
+    def add_message(self, message, sender):
+        number = self.query.join(chat_message_data).count()
+        m = chat_message_data(conversation_id=self.conversation_id, message_number=number, sender=sender, message=message)
+        db.session.add(m)
+        db.session.commit()
 
 class chat_message_data(db.Model):
     message_id = db.Column(db.Integer, primary_key=True)
     conversation_id = db.Column(db.Integer, db.ForeignKey('conversation_data.conversation_id')) #for some reason this won't show in the schema
+    message_number = db.Column(db.Integer)
     sender = db.Column(db.String(8)) #Either User, Chat or System
     message = db.Column(db.String(1024)) #Whats the max message length?
 

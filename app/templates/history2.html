@@ -40,24 +40,15 @@
             {% for c in conversations%}
             <tr class="login-container">
                 <td>{{c['conversation_name']}}</td>
-                <td>Rename</td>
-                <td>Continue</td>
+                <button class="history-rename-button">Rename</button>
+                <a href="{{ url_for('chat', conversation_id=c['conversation_id']) }}">Continue</a>
             </tr>
             {% endfor %}
         </table>
 
         <script src="{{ url_for('static', filename='particles.js') }}"></script>
         <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <script src="{{ url_for('static', filename='history_script.js') }}"></script>
     </div>
-    
-    <script>
-        function previousConversation() {
-            // Implement functionality to load the previous conversation
-        }
-        
-        function nextConversation() {
-            // Implement functionality to load the next conversation
-        }
-    </script>
 </body>
 </html>    

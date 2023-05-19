@@ -42,6 +42,11 @@
             and I'll be more than happy to provide you with an answer!
           </p>
         </div>
+        {% for m in messages%}
+        <div class="chatbox-message chatbox-message-{{ m.sender }}">
+          <p class="chatbox-message-{{ m.sender }}-internal">{{ m.message }}</p>
+        </div>
+        {% endfor %}
       </div>
       <div class="chatbox-input-container">
         <input
