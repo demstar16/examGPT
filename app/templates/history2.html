@@ -40,12 +40,12 @@
       <div class="history-conversation">
         <p>{{c['conversation_name']}}</p>
         <button class="history-rename-button">Rename</button>
-        <a href="{{ url_for('chat', conversation_id=c['conversation_id']) }}">Continue</a>
+        <button href="{{ url_for('chat', conversation_id=c['conversation_id']) }}">Continue</button>
         <button class="history-delete-button" onclick="deleteConversation( {{ c['conversation_id'] }} )">Delete</button>
       </div>
       {% endfor %}
-      <button class="new-conversation-button">New conversation</button>
     </div>
+    <button class="new-conversation-button">New conversation</button>
     <script src="{{ url_for('static', filename='particles.js') }}"></script>
     <script src="{{ url_for('static', filename='history_script.js') }}"></script>
   </div>
