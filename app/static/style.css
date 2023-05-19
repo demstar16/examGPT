@@ -272,10 +272,13 @@ body {
 }
 
 .history-conversation {
+  border: 1px solid rgba(0, 0, 0, 0.144);
+  border-radius: 10px;
+  padding: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
-  height: 90px; /* Set a fixed height of 90px for conversation elements */
+  height: 50px; /* Set a fixed height of 90px for conversation elements */
 }
 
 .history-conversation p {
@@ -283,10 +286,17 @@ body {
   grid-column: 1 / span 3;
 }
 
-.history-conversation button,
-a {
+.history-conversation button, .history-conversation a {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
   margin-left: 10px;
   grid-column: span 1;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .new-conversation-button {

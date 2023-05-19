@@ -40,7 +40,7 @@
       <div class="history-conversation">
         <p>{{c['conversation_name']}}</p>
         <button class="history-rename-button">Rename</button>
-        <button href="{{ url_for('chat', conversation_id=c['conversation_id']) }}">Continue</button>
+        <a style="text-align: center" href="{{ url_for('chat', conversation_id=c['conversation_id']) }}">Continue</a>
         <button class="history-delete-button" onclick="deleteConversation( {{ c['conversation_id'] }} )">Delete</button>
       </div>
       {% endfor %}
