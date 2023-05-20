@@ -1,6 +1,6 @@
 const newConversationButton = document.querySelector(".new-conversation-button");
 const renameButton = document.querySelector(".history-rename-button");
-const table = document.querySelector(".chatbox-container");
+const historyContainer = document.querySelector(".history-container");
 
 function newConversation() {
   // Create new conversation in the database
@@ -16,11 +16,11 @@ function newConversation() {
   });
 }
 
-function renameConversation(conversationId) {
+function renameConversation(conversationId, button) {
   // rename a conversation in the database
   var newName = window.prompt("Enter the new conversation name:");
   fetch("/renameConversation", {
-    method: "POST",
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
@@ -29,11 +29,18 @@ function renameConversation(conversationId) {
   .catch((error) => {
     console.error("Error:", error);
   });
-  //Reload webpage after update
-  location.reload();
+
+  // Rename conversation from page
+  div = button.parentNode;
+  p = div.firstElementChild ;
+  p.innerHTML = newName;
 }
 
-function deleteConversation(conversationId) {
+function deleteConversation(conversationId, button) {
+  if (!confirm("Are you sure you want to delete this conversation?")) {
+    return;
+  }
+
   // Delete a conversation in the database
   fetch("/deleteConversation", {
     method: "DELETE",
@@ -45,30 +52,40 @@ function deleteConversation(conversationId) {
   .catch((error) => {
     console.error("Error:", error);
   });
-  location.reload();
+
+  // Delete conversation from page
+  div = button.parentNode;
+  div.remove();
 }
 
 newConversationButton.addEventListener("click", newConversation);
 renameButton.addEventListener("click", renameConversation);
 
 function displayConversation(conversationName, conversationId) {
-  const tr = table.insertRow(-1);
+  const div = document.createElement("div");
+  div.classList.add("history-conversation");
 
-  const td = document.createElement("tr");
-  td.innerHTML = conversationName;
+  const p = document.createElement("p");
+  p.innerHTML = conversationName;
 
   const rename = document.createElement("button");
+  div.classList.add("history-rename-button");
   rename.innerHTML = "Rename";
 
   const a = document.createElement("a");
+  a.style.textAlign = "center";
   a.href = `/index/${conversationId}`;
   a.innerHTML = "Continue";
 
   const delet = document.createElement("button");
+  div.classList.add("history-delete-button");
   delet.innerHTML = "Delete";
 
-  tr.insertCell(td);
-  tr.insertCell(button);
-  tr.insertCell(a);
-  tr.insertCell(delet);
+  div.appendChild(p)
+  div.appendChild(rename)
+  div.appendChild(a)
+  div.appendChild(delet)
+
+  historyContainer.appendChild(div);
 }
+

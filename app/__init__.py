@@ -93,7 +93,7 @@ def chatbot(conversation_id):
     print("User:", message)
 
     # Get conversation and add users message to database
-    conversation = conversation_data.query.filter_by(conversation_id=conversation_id).first_or_404()
+    conversation = current_user.conversations.filter_by(conversation_id=conversation_id).first_or_404()
     conversation.add_message(message=message, sender="user")
 
     # Get a list of all the messages in the conversation
@@ -129,7 +129,7 @@ def deleteConversation():
     db.session.commit()
     return 'ok'
 
-@app.route('/renameConversation', methods=['POST'])
+@app.route('/renameConversation', methods=['PATCH'])
 def renameConversation():
     conversation_id = request.json['conversationId']
     new_name = request.json['newName']

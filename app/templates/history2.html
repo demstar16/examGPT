@@ -39,9 +39,9 @@
       {% for c in conversations%}
       <div class="history-conversation">
         <p>{{c['conversation_name']}}</p>
-        <button class="history-rename-button" onclick="renameConversation( {{ c['conversation_id'] }} )">Rename</button>
+        <button class="history-rename-button" onclick="renameConversation( {{ c['conversation_id'] }}, this )">Rename</button>
         <a style="text-align: center" href="{{ url_for('chat', conversation_id=c['conversation_id']) }}">Continue</a>
-        <button class="history-delete-button" onclick="deleteConversation( {{ c['conversation_id'] }} )">Delete</button>
+        <button class="history-delete-button" onclick="deleteConversation( {{ c['conversation_id'] }}, this )">Delete</button>
       </div>
       {% endfor %}
     </div>

@@ -6,6 +6,7 @@ class customer_data(UserMixin, db.Model):
     customer_id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
+    conversations = db.relationship('conversation_data', backref='user', lazy='dynamic')
 
     def __repr__(self):
         return '<User {}>'.format(self.email)
@@ -43,7 +44,7 @@ class conversation_data(db.Model):
 
 class chat_message_data(db.Model):
     message_id = db.Column(db.Integer, primary_key=True)
-    conversation_id = db.Column(db.Integer, db.ForeignKey('conversation_data.conversation_id')) #for some reason this won't show in the schema
+    conversation_id = db.Column(db.Integer, db.ForeignKey('conversation_data.conversation_id'))
     message_number = db.Column(db.Integer)
     sender = db.Column(db.String(8)) #Either User, Chat or System
     message = db.Column(db.String(1024)) #Whats the max message length?
