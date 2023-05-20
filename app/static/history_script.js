@@ -1,5 +1,4 @@
 const newConversationButton = document.querySelector(".new-conversation-button");
-const renameButton = document.querySelector(".history-rename-button");
 const historyContainer = document.querySelector(".history-container");
 
 function newConversation() {
@@ -59,7 +58,6 @@ function deleteConversation(conversationId, button) {
 }
 
 newConversationButton.addEventListener("click", newConversation);
-renameButton.addEventListener("click", renameConversation);
 
 function displayConversation(conversationName, conversationId) {
   const div = document.createElement("div");
@@ -69,7 +67,8 @@ function displayConversation(conversationName, conversationId) {
   p.innerHTML = conversationName;
 
   const rename = document.createElement("button");
-  div.classList.add("history-rename-button");
+  rename.classList.add("history-rename-button");
+  rename.onclick = function () {renameConversation(conversationId, rename)};
   rename.innerHTML = "Rename";
 
   const a = document.createElement("a");
@@ -78,7 +77,8 @@ function displayConversation(conversationName, conversationId) {
   a.innerHTML = "Continue";
 
   const delet = document.createElement("button");
-  div.classList.add("history-delete-button");
+  delet.classList.add("history-delete-button");
+  delet.onclick = function () {deleteConversation(conversationId, delet)};
   delet.innerHTML = "Delete";
 
   div.appendChild(p)
@@ -87,5 +87,15 @@ function displayConversation(conversationName, conversationId) {
   div.appendChild(delet)
 
   historyContainer.appendChild(div);
+}
+
+
+// function to confirm logout
+function confirmLogout() {
+  if (confirm("Are you sure you want to log out?")) {
+      window.location.href = "/logout";
+  } else {
+    return false; // Cancels the click event
+  }
 }
 

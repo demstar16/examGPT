@@ -22,7 +22,7 @@ from app.forms import LoginForm, RegistrationForm
 @login_required
 def home():
     flash("Welcome home")
-    return render_template('history2.html')
+    return render_template('history2.html', email=current_user.email, conversations=current_user.get_conversations())
 
 @app.route('/index/<conversation_id>')
 @login_required
@@ -70,7 +70,6 @@ def register():
 @login_required
 def history():
     return render_template('history2.html', email=current_user.email, conversations=current_user.get_conversations())
-    #return render_template('history.html', email=current_user.email)
 
 #logout current user
 @app.route('/logout')
