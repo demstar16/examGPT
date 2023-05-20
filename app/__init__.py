@@ -27,7 +27,7 @@ def home():
 @app.route('/index/<conversation_id>')
 @login_required
 def chat(conversation_id):
-    conversation = conversation_data.query.filter_by(conversation_id=conversation_id).first_or_404()
+    conversation = current_user.conversations.filter_by(conversation_id=conversation_id).first_or_404()
     messages = conversation.get_messages()
     return render_template('index.html', messages=messages)
 
