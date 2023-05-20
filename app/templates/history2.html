@@ -10,12 +10,12 @@
   <div class="background"></div>
   <!-- Navigation bar -->
   <nav class="navbar">
-    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('home') }}">New Chat</a>
     <a href="{{ url_for('history') }}">History</a>
     {% if current_user.is_anonymous %}
     <a href="{{ url_for('login') }}">Login</a>
     {% else %}
-    <a onclick="confirmLogout()">Logout</a>
+    <a onclick="confirmLogout()" style="cursor: pointer;">Logout</a>
     {% endif %}
     </nav>
   <div class="body-width">

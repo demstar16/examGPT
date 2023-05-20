@@ -17,13 +17,16 @@ from app import models
 from app.models import customer_data, conversation_data, chat_message_data
 from app.forms import LoginForm, RegistrationForm
 
-# function to render HTML page
+# home page starts a new chat
 @app.route('/')
 @login_required
 def home():
-    flash("Welcome home")
-    return render_template('history2.html', email=current_user.email, conversations=current_user.get_conversations())
+    conversation = conversation_data(customer_id=current_user.customer_id, conversation_name="New Conversation")
+    db.session.add(conversation)
+    db.session.commit()
+    return redirect(url_for('chat', conversation_id=conversation.conversation_id))
 
+# go to chat page with the given id
 @app.route('/index/<conversation_id>')
 @login_required
 def chat(conversation_id):
@@ -124,6 +127,7 @@ def newConversation():
 @app.route('/deleteConversation', methods=['DELETE'])
 def deleteConversation():
     conversation_id = request.json['conversationId']
+    chat_message_data.query.filter_by(conversation_id=conversation_id).delete()
     conversation_data.query.filter_by(conversation_id=conversation_id).delete()
     db.session.commit()
     return 'ok'
