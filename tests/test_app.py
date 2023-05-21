@@ -7,6 +7,27 @@ from selenium.webdriver.common.by import By
 # TestingConfig must be set in __init__.py before running test ----------------------------------------------
 # Or else the main db will be used/deleted
 
+def createTestUser(self):
+    self.driver.get('http://localhost:5000/register')
+    self.driver.implicitly_wait(2)
+    email_field = self.driver.find_element(By.ID, 'email')
+    email_field.send_keys('t1@gmail.com')
+    password_field = self.driver.find_element(By.ID, 'password')
+    password_field.send_keys('password')
+    password2_field = self.driver.find_element(By.ID, 'password2')
+    password2_field.send_keys('password')
+    self.driver.implicitly_wait(2)
+    submit = self.driver.find_element(By.CLASS_NAME, 'login-buttons')
+    submit.click()    
+
+def logoutOfUser(self):
+    logout = self.driver.find_element(By.PARTIAL_LINK_TEXT, 'Logout')
+    logout.click()
+    self.driver.implicitly_wait(5)
+    alert = self.driver.switch_to.alert
+    alert.accept()
+    self.driver.implicitly_wait(5)
+
 class CustomerDataCase(unittest.TestCase):
 
     def setUp(self):
@@ -32,17 +53,7 @@ class CustomerDataCase(unittest.TestCase):
     
     def test_registration(self):
         #Ensures that creating a new registration logs in properly
-        self.driver.get('http://localhost:5000/register')
-        self.driver.implicitly_wait(2)
-        email_field = self.driver.find_element(By.ID, 'email')
-        email_field.send_keys('t1@gmail.com')
-        password_field = self.driver.find_element(By.ID, 'password')
-        password_field.send_keys('password')
-        password2_field = self.driver.find_element(By.ID, 'password2')
-        password2_field.send_keys('password')
-        self.driver.implicitly_wait(2)
-        submit = self.driver.find_element(By.CLASS_NAME, 'login-buttons')
-        submit.click()
+        createTestUser(self)
         self.driver.implicitly_wait(5)
         logout = self.driver.find_element(By.PARTIAL_LINK_TEXT, 'Logout')
         self.assertEqual(logout.get_attribute('innerHTML'), 'Logout')
@@ -53,22 +64,31 @@ class CustomerDataCase(unittest.TestCase):
         self.driver.implicitly_wait(5)
 
         #Try to register with the same email
-        self.driver.get('http://localhost:5000/register')
+        createTestUser(self)
+        self.driver.implicitly_wait(5)
+        time.sleep(1)
+        error = self.driver.find_element(By.CLASS_NAME, 'error-messages')
+        self.assertNotEqual(error.get_attribute('innerHTML'), '\n                \n              ')
+    
+    def test_login(self):
+        #setup account
+        createTestUser(self)
+        logoutOfUser(self)
+
+        #Attempt to log in with incorrect information
         self.driver.implicitly_wait(2)
-        email_field = self.driver.find_element(By.ID, 'email')
-        email_field.send_keys('t1@gmail.com')
-        password_field = self.driver.find_element(By.ID, 'password')
-        password_field.send_keys('differentpassword')
-        password2_field = self.driver.find_element(By.ID, 'password2')
-        password2_field.send_keys('differentpassword')
+        email = self.driver.find_element(By.ID, 'email')
+        email.send_keys('t1@gmail.com')
+        password = self.driver.find_element(By.ID, 'password')
+        password.send_keys('notpassword')
         self.driver.implicitly_wait(2)
         submit = self.driver.find_element(By.CLASS_NAME, 'login-buttons')
         submit.click()
         self.driver.implicitly_wait(5)
-        time.sleep(2.5)
-        error = self.driver.find_element(By.CLASS_NAME, 'error-messages')
-        self.assertNotEqual(error.get_attribute('innerHTML'), '\n                \n              ')
-    
+        errorPopUp = self.driver.find_element(By.CLASS_NAME, 'flash.message')
+        self.assertEquals(errorPopUp.get_attribute('innerHTML'), 'Invalid email or password')
+
+
     def test_conversation_history(self):
         # Login
         self.driver.get('http://localhost:5000/login')
