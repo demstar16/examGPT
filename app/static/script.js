@@ -17,6 +17,7 @@ function sendMessage() {
     const { loadingMessage, loadingInterval } = displayLoadingMessage("ExamGPT", "Thinking");
     scrollToBottom();
 
+    // Get the conversation id from the url
     let url = window.location.href.split("/");
     let cid = url[url.length-1];
 
