@@ -19,11 +19,6 @@ class customer_data(UserMixin, db.Model):
     
     def get_id(self):
         return self.customer_id
-    
-    def get_conversations(self):
-        return conversation_data.query.filter_by(customer_id=self.customer_id).all()
-    
-    
 
 class conversation_data(db.Model):
     conversation_id = db.Column(db.Integer, primary_key=True)
@@ -37,7 +32,7 @@ class conversation_data(db.Model):
         return chat_message_data.query.filter_by(conversation_id=self.conversation_id).order_by(chat_message_data.message_number).all()
     
     def add_message(self, message, sender):
-        number = self.query.join(chat_message_data).count()
+        number = len(self.get_messages())
         m = chat_message_data(conversation_id=self.conversation_id, message_number=number, sender=sender, message=message)
         db.session.add(m)
         db.session.commit()
@@ -46,7 +41,7 @@ class chat_message_data(db.Model):
     message_id = db.Column(db.Integer, primary_key=True)
     conversation_id = db.Column(db.Integer, db.ForeignKey('conversation_data.conversation_id'))
     message_number = db.Column(db.Integer)
-    sender = db.Column(db.String(8)) #Either User, Chat or System
+    sender = db.Column(db.String(8)) #Either User, Chatbot or System
     message = db.Column(db.String(1024)) #Whats the max message length?
 
     def __repr__(self):

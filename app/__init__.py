@@ -1,13 +1,13 @@
-from flask import Flask, request, jsonify, render_template, flash, redirect, url_for, session
+from flask import Flask, request, jsonify, render_template, flash, redirect, url_for
 from .gpt_api import ExamGPT_conversation
-from config import Config
+from config import ProductionConfig, TestingConfig
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager, current_user, login_user, login_required, logout_user
 from werkzeug.urls import url_parse
 
 app = Flask(__name__)
-app.config.from_object(Config)
+app.config.from_object(ProductionConfig)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
@@ -65,14 +65,15 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash('Registration successful')
-        return redirect(url_for('login'))
+        login_user(user, remember=False)
+        return redirect(url_for('home'))
     return render_template('register.html', title='Register', form=form)
 
 # function to render history page
 @app.route('/history')
 @login_required
 def history():
-    return render_template('history2.html', email=current_user.email, conversations=current_user.get_conversations())
+    return render_template('history2.html', email=current_user.email, conversations=current_user.conversations)
 
 #logout current user
 @app.route('/logout')
