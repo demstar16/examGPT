@@ -9,7 +9,6 @@ body {
   align-items: center;
   margin: 0;
   z-index: 2;
-  overflow: hidden;
   margin-bottom: 50px;
 }
 
@@ -172,6 +171,7 @@ body {
   z-index: 2;
   margin-left: 150px; /* Added margin to avoid touching the sides */
   margin-right: 150px; /* Added margin to avoid touching the sides */
+  overflow-y: auto;
 
 }
 
