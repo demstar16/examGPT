@@ -9,7 +9,6 @@ class CustomerDataCase(unittest.TestCase):
     def setUp(self):
         basedir = os.path.abspath(os.path.dirname(__file__))
         self.driver = webdriver.Chrome(executable_path=os.path.join(basedir,'chromedriver.exe'))
-
         if not self.driver:
             self.skipTest("Driver not avaiable")
         else:
@@ -19,10 +18,8 @@ class CustomerDataCase(unittest.TestCase):
             customer = customer_data(email="email@gmail.com")
             customer.set_password('password')
             db.session.add(customer)
-            conversation = conversation_data()
+            conversation = conversation_data(conversation_name="c1")
             db.session.add(conversation)
-            message = chat_message_data()
-            db.session.add(message)
             db.session.commit()
             self.driver.maximize_window()
             self.driver.get('http://localhost:5000/')
@@ -49,10 +46,6 @@ class CustomerDataCase(unittest.TestCase):
         self.assertEqual(logout.get_attribute('innerHTML'), 'Logout')
     
     def test_conversation_history(self):
-        customer = customer_data.query.first()
-        print()
-        print(customer.conversations.count())
-        print()
         # Login
         self.driver.get('http://localhost:5000/login')
         self.driver.implicitly_wait(2)
@@ -73,9 +66,6 @@ class CustomerDataCase(unittest.TestCase):
         name = div.find_element(By.CSS_SELECTOR, 'p')
         self.assertEqual(name.get_attribute('innerHTML'), 'New Conversation')
 
-        print()
-        print(customer.conversations.all())
-        print()
         # Rename Conversation
         rename = self.driver.find_element(By.CLASS_NAME, 'history-rename-button')
         rename.click()
@@ -89,9 +79,6 @@ class CustomerDataCase(unittest.TestCase):
         self.assertEqual(name.get_attribute('innerHTML'), 'Test Conversation')
         self.driver.implicitly_wait(5)
 
-        print()
-        print(customer.conversations.all())
-        print()
         # Delete Conversation
         delete = self.driver.find_element(By.CLASS_NAME, 'history-delete-button')
         delete.click()
@@ -99,10 +86,7 @@ class CustomerDataCase(unittest.TestCase):
         alert = self.driver.switch_to.alert
         alert.accept()
         self.driver.implicitly_wait(5)
-        
-        print()
-        print(customer.conversations.all())
-        print()
+        customer = customer_data.query.first()
         self.assertTrue(customer.conversations.count() == 0)
 
 
