@@ -41,6 +41,9 @@ body {
 .body-width {
   width: fit-content;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Styles for the login page */
@@ -255,7 +258,6 @@ body {
   border-radius: 10px;
   height: 500px; /* Keep the fixed height of 500px */
   max-width: 1300px;
-  min-width: 1300px;
   box-sizing: border-box;
   overflow-y: scroll;
   padding: 10px;
@@ -266,7 +268,7 @@ body {
 }
 
 .history-conversation {
-  border: 1px solid rgba(0, 0, 0, 0.144);
+  border: 2px solid rgba(0, 0, 0, 0.144);
   border-radius: 10px;
   padding: 5px;
   display: grid;
@@ -278,9 +280,11 @@ body {
 .history-conversation p {
   margin: 0;
   grid-column: 1 / span 3;
+  padding-left: 5px;
 }
 
-.history-conversation button, .history-conversation a {
+.history-conversation button, 
+.history-conversation a {
   background-color: #4caf50;
   color: white;
   border: none;
@@ -293,6 +297,11 @@ body {
   display: inline-block;
 }
 
+.history-conversation button:hover, 
+.history-conversation a:hover {
+  background-color: grey;
+}
+
 .new-conversation-button {
   background-color: #4caf50;
   color: white;
@@ -301,6 +310,7 @@ body {
   padding: 10px;
   cursor: pointer;
   margin-top: 10px;
+  align-self: center;
 }
 
 /* Styling for the background */
@@ -369,8 +379,21 @@ body {
     font-size: 12px;
   }
 
-  .chatbox-container {
-    max-width: 500px;
+  .welcome-section h1 {
+    font-size: 15px;
+  }
+
+  .chatbox-container,
+  .history-container,
+  .history-conversation {
+    max-width: 550px;
+    margin: auto;
+  }
+
+  .history-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .chatbox-input-container {
