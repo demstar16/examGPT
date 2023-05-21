@@ -4,6 +4,9 @@ from app.models import customer_data, conversation_data, chat_message_data
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+# TestingConfig must be set in __init__.py before running test ----------------------------------------------
+# Or else the main db will be used/deleted
+
 class CustomerDataCase(unittest.TestCase):
 
     def setUp(self):
@@ -18,8 +21,6 @@ class CustomerDataCase(unittest.TestCase):
             customer = customer_data(email="email@gmail.com")
             customer.set_password('password')
             db.session.add(customer)
-            conversation = conversation_data(conversation_name="c1")
-            db.session.add(conversation)
             db.session.commit()
             self.driver.maximize_window()
             self.driver.get('http://localhost:5000/')
@@ -73,6 +74,7 @@ class CustomerDataCase(unittest.TestCase):
         alert = self.driver.switch_to.alert
         alert.send_keys("Test Conversation")
         alert.accept()
+        time.sleep(1)
         self.driver.implicitly_wait(5)
         div = self.driver.find_element(By.CLASS_NAME, 'history-conversation')
         name = div.find_element(By.CSS_SELECTOR, 'p')
@@ -85,6 +87,7 @@ class CustomerDataCase(unittest.TestCase):
         self.driver.implicitly_wait(5)
         alert = self.driver.switch_to.alert
         alert.accept()
+        time.sleep(1)
         self.driver.implicitly_wait(5)
         customer = customer_data.query.first()
         self.assertTrue(customer.conversations.count() == 0)
