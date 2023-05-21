@@ -40,7 +40,9 @@
         </div>
         {% for m in messages%}
         <div class="chatbox-message chatbox-message-{{ m.sender }}">
-          <p class="chatbox-message-{{ m.sender }}-internal">{{ m.message }}</p>
+          {% autoescape false %}
+          <p class="chatbox-message-{{ m.sender }}-internal">{{ m.message | replace('\n', '<br>') }}</p>
+          {% endautoescape %}
         </div>
         {% endfor %}
       </div>
