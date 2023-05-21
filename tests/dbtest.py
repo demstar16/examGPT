@@ -1,4 +1,5 @@
 import unittest, os
+os.environ['DATABASE_URL'] = 'sqlite://'
 
 from app import app, db
 from app.models import customer_data, conversation_data, chat_message_data
