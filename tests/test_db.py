@@ -58,7 +58,5 @@ class CustomerDataCase(unittest.TestCase):
         self.assertTrue(message1.message_number == 0)
         self.assertTrue(message2.message_number == 1)
 
-
-
 if __name__ == '__main__':
     unittest.main(verbosity=2)

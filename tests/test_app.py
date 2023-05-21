@@ -87,11 +87,10 @@ class CustomerDataCase(unittest.TestCase):
         self.driver.implicitly_wait(5)
         alert = self.driver.switch_to.alert
         alert.accept()
-        time.sleep(1)
+        time.sleep(2.5)
         self.driver.implicitly_wait(5)
         customer = customer_data.query.first()
         self.assertTrue(customer.conversations.count() == 0)
-
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
