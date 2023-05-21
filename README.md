@@ -1,4 +1,12 @@
-# cits3403-project
+# cits3403-project - ExamGPT
+## Overview
+ExamGPT is an intelligent chatbot designed to generate exam questions and provide assistance to students by helping them solve complex problems, tailored to their learning needs and subject areas. It is powered by ChatGPT 3, and written using a variety of different technologies:
+
+*Frontend*: Written using standard HTML, CSS, and Javascript. The design of the application was inspired by that of OpenAI's chatGPT interface.
+
+*Backend*: Written in Python and powered by Flask. Flask handles client requests, as well as all server-side logic
+
+*Database*: Uses a SQLite database to store conversation and encrypted user data. Uses SQLAlchemy to interact with the database from the Flask application.
 
 ## How to setup:
 1. Make sure python and pip are installed
@@ -51,6 +59,28 @@ flask run
 deactivate
 ```
 This will change your python environment back to the default location.
+
+## Unit Tests
+Tests are implemented using Selenium and can be run by following these steps:
+1. Change line 10 of __init__.py from 
+   ```
+   app.config.from_object(ProductionConfig)
+   ```
+   to 
+
+   ```
+   app.config.from_object(TestingConfig)
+   ```
+2. Run the flask application by running
+   ```
+   flask run
+   ```
+   after setup.
+3. In a different terminal, run
+   ```
+   python3 -m unittest discover
+   ```
+   to run all automated tests.
 
 ## TO DO:
 - [x] Create development environment
