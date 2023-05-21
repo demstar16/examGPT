@@ -155,19 +155,12 @@ body {
   margin: 10px 80px;
 }
 
-.welcome-section .example {
-  font-size: 13px;
-  color: #d4edda;
-
-}
-
 /* Styles for the chatbox container */
 .chatbox-container {
   border: 1px solid rgba(0, 0, 0, 0.144);
   border-radius: 10px;
   height: 500px;
   max-width: 1300px;
-  min-width: 1300px;
   box-sizing: border-box;
   overflow-y: scroll;
   padding: 10px;
@@ -225,6 +218,7 @@ body {
 /* Styles for the chatbox input container */
 .chatbox-input-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   max-width: 1300px;
   min-width: 1300px;
@@ -363,6 +357,36 @@ body {
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;
+}
+
+@media (max-width: 700px) {
+  .welcome-section{ 
+    max-width: 650px;
+    margin: auto;
+  }
+
+  .welcome-section p {
+    font-size: 12px;
+  }
+
+  .chatbox-container {
+    max-width: 500px;
+  }
+
+  .chatbox-input-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+  }
+
+  .chatbox-input {
+    max-width: 400px;
+  }
+
+  .chatbox-message p {
+    font-size: 12px;
+  }
 }
 
 @keyframes fadeOut {
