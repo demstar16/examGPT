@@ -31,6 +31,7 @@ class CustomerDataCase(unittest.TestCase):
         self.app_context.pop()
     
     def test_registration(self):
+        #Ensures that creating a new registration logs in properly
         self.driver.get('http://localhost:5000/register')
         self.driver.implicitly_wait(2)
         email_field = self.driver.find_element(By.ID, 'email')
@@ -45,6 +46,28 @@ class CustomerDataCase(unittest.TestCase):
         self.driver.implicitly_wait(5)
         logout = self.driver.find_element(By.PARTIAL_LINK_TEXT, 'Logout')
         self.assertEqual(logout.get_attribute('innerHTML'), 'Logout')
+        logout.click()
+        self.driver.implicitly_wait(5)
+        alert = self.driver.switch_to.alert
+        alert.accept()
+        self.driver.implicitly_wait(5)
+
+        #Try to register with the same email
+        self.driver.get('http://localhost:5000/register')
+        self.driver.implicitly_wait(2)
+        email_field = self.driver.find_element(By.ID, 'email')
+        email_field.send_keys('t1@gmail.com')
+        password_field = self.driver.find_element(By.ID, 'password')
+        password_field.send_keys('differentpassword')
+        password2_field = self.driver.find_element(By.ID, 'password2')
+        password2_field.send_keys('differentpassword')
+        self.driver.implicitly_wait(2)
+        submit = self.driver.find_element(By.CLASS_NAME, 'login-buttons')
+        submit.click()
+        self.driver.implicitly_wait(5)
+        time.sleep(2.5)
+        error = self.driver.find_element(By.CLASS_NAME, 'error-messages')
+        self.assertNotEqual(error.get_attribute('innerHTML'), '\n                \n              ')
     
     def test_conversation_history(self):
         # Login
@@ -74,7 +97,7 @@ class CustomerDataCase(unittest.TestCase):
         alert = self.driver.switch_to.alert
         alert.send_keys("Test Conversation")
         alert.accept()
-        time.sleep(1)
+        time.sleep(2.5)
         self.driver.implicitly_wait(5)
         div = self.driver.find_element(By.CLASS_NAME, 'history-conversation')
         name = div.find_element(By.CSS_SELECTOR, 'p')
