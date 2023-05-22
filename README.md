@@ -92,13 +92,9 @@ Tests are implemented using Selenium and can be run by following these steps:
 - [x] Proper design or the web page (make it look nice)
 - [x] Create / Find a proper chatbot for questions
 - [x] Create a database schema to store chat messages, user information, and exam questions.
-- [ ] Add an admin page to manage accounts (only we know the admin login details)
 - [x] Implement authentication to ensure that only registered users can access the chat application.
-- [ ] Deploy the application on a server.
 - [x] Create Unit Tests
 - [x] Add an alert for the logout button (a way so if u accidently click it you're not just logged out)
-- [ ] Add constraints to make the bot more specific, so its not just chatGPT (if that makes sense)
-- [ ] Forgot password functionality
-- [ ] Delete any Redundant files
+- [X] Delete any Redundant files
 
 

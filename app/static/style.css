@@ -51,11 +51,13 @@ body {
 .login-container {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  max-width: 500px;
+  max-width: 100%;
   box-sizing: border-box;
   padding: 20px;
   font-size: 20px;
-  margin: 0 auto;
+  margin-top: 30px;
+  margin-left: 150px; /* Added margin to avoid touching the sides */
+  margin-right: 150px; /* Added margin to avoid touching the sides */
   color: white;
 }
 
@@ -93,7 +95,7 @@ body {
   border-radius: 5px;
   padding: 10px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
   text-decoration: none;
   outline: none;
@@ -122,6 +124,7 @@ body {
   text-decoration: none;
   color: white;
   font-weight: 700;
+  font-size: 16px;
 }
 
 .login-container a:hover {
@@ -257,13 +260,14 @@ body {
 .history-container {
   border: 1px solid rgba(0, 0, 0, 0.144);
   border-radius: 10px;
-  height: 500px; /* Keep the fixed height of 500px */
-  max-width: 1300px;
-  min-width: 550px;
+  height: 500px; /* Adjusted to a percentage value */
+  min-width: 400px;
   box-sizing: border-box;
   overflow-y: scroll;
   padding: 10px;
   margin-top: 30px;
+  margin-left: 20px; /* Adjusted margin for smaller screens */
+  margin-right: 20px; /* Adjusted margin for smaller screens */
   background-color: rgba(255, 251, 241, 0.6);
   display: grid;
   grid-template-columns: 1fr;
@@ -276,7 +280,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
-  height: 50px; /* Set a fixed height of 90px for conversation elements */
+  min-height: 50px; /* Changed to min-height */
+  max-height: 90px; /* Changed to max-height */
 }
 
 .history-conversation p {
@@ -371,10 +376,12 @@ body {
   border-color: #f5c6cb;
 }
 
+/* ---------------- Specific Stylings for Mobile Devices -------------------- */
 @media (max-width: 700px) {
   .welcome-section{ 
     max-width: 650px;
     margin: auto;
+
   }
 
   .welcome-section p {
@@ -382,7 +389,7 @@ body {
   }
 
   .welcome-section h1 {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .chatbox-container,
@@ -395,7 +402,11 @@ body {
   .history-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .history-conversation {
+    max-width: 400px;
   }
 
   .chatbox-input-container {
