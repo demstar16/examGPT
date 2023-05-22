@@ -406,6 +406,13 @@ body {
     max-width: 400px;
   }
 
+  .history-container button,
+  .history-container a {
+    font-size: 10px;
+    padding: none;
+    margin-left: 2px;
+  }
+
   .chatbox-input-container {
     display: flex;
     justify-content: center;
