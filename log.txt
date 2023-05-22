@@ -1,0 +1,614 @@
+* commit be44cc3dfdca673fa63f1f7bcfc5715536d47999 (HEAD -> main, origin/main, origin/HEAD)
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Mon May 22 09:34:32 2023 +0800
+| 
+|     edited to pass the validator
+|     
+|     only errors we get now are due to flask syntax, so should be fine.
+| 
+* commit 6a85919cbbe1f69138ba7f2350ed1816c42e6ea2
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Mon May 22 09:33:58 2023 +0800
+| 
+|     Update requirements.txt
+| 
+* commit 8556c88773cef707375d110c3057ab3c9eae6567
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Mon May 22 09:16:25 2023 +0800
+| 
+|     removed my old test file
+|     
+|     unused
+| 
+* commit b792110b6de64dc16d5e720d34c8c20886aec700
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Mon May 22 09:08:09 2023 +0800
+| 
+|     Changed a div name
+| 
+* commit 5e53fa34966ef2720f3969a19f241f58f9617cd1
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Mon May 22 09:07:55 2023 +0800
+| 
+|     changed where particles get appended
+|     
+|     they now get appended into the correct div, this stops the scroll bar popping up issue.
+| 
+* commit 809097a0d8e79769a2b72ea7ca4afa1a7d7ae200
+| Author: 23127639uwa <23127639@student.uwa.edu.au>
+| Date:   Mon May 22 02:31:46 2023 +0800
+| 
+|     Add login detail assertion test
+| 
+* commit 1c87e12bf4e8ba867ecc43bf73a9ef22c38ae6d4
+| Author: 23127639uwa <23127639@student.uwa.edu.au>
+| Date:   Mon May 22 02:10:09 2023 +0800
+| 
+|     Add duplicate email registration test
+|   
+*   commit 6cfd89b1fd221899f6cdb0c46cf44ef32430ed31
+|\  Merge: 2cf73af f4cd4e1
+| | Author: 23127639uwa <23127639@student.uwa.edu.au>
+| | Date:   Mon May 22 01:43:55 2023 +0800
+| | 
+| |     Merge branch 'main' of https://github.com/demstar16/cits3403-project
+| | 
+| * commit f4cd4e1c99b8d1fc67ddd3824a18833a7e17186b
+| | Author: Ay1tsMe <adam.wyatt@iinet.net.au>
+| | Date:   Sun May 21 22:48:28 2023 +0800
+| | 
+| |     fixed scrolling issue
+| |   
+| *   commit 65483e62b5fa605f93473ff8fed8204535c70ad6
+| |\  Merge: 97a0332 12b18ea
+| | | Author: Adam Wyatt <adam.wyatt@iinet.net.au>
+| | | Date:   Sun May 21 22:30:12 2023 +0800
+| | | 
+| | |     Merge branch 'main' of https://github.com/demstar16/cits3403-project
+| | | 
+| * | commit 97a0332e7c3c730c207adc3751c197f6d13001e7
+| | | Author: Adam Wyatt <adam.wyatt@iinet.net.au>
+| | | Date:   Sun May 21 22:29:27 2023 +0800
+| | | 
+| | |     fixed mobile styling for new chat screen
+| | | 
+* | | commit 2cf73af72e4a526fb4778ed90001c95cd702f11b
+| | | Author: 23127639uwa <23127639@student.uwa.edu.au>
+| | | Date:   Mon May 22 01:43:47 2023 +0800
+| | | 
+| | |     Make running unit tests simpler
+| | | 
+* | | commit 8ec89c2adc84dfc485294210d95dc5dd47d16957
+| |/  Author: 23127639uwa <23127639@student.uwa.edu.au>
+|/|   Date:   Mon May 22 01:42:57 2023 +0800
+| |   
+| |       Overview and testing to readme
+| | 
+* | commit 12b18ea2ba6461916d24079e22cb0f97f801eabf
+|/  Author: While-Luke <lukeellis3141@gmail.com>
+|   Date:   Sun May 21 22:01:16 2023 +0800
+|   
+|       Fixed the history chat formatting issue
+| 
+* commit 8feddcfdf241e67d1a6cc4aebe12fbe985acf834
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Sun May 21 21:39:08 2023 +0800
+| 
+|     selenium test now works
+| 
+* commit fea66b3ed7e5253adfef3046ff402234d083b55d
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Sun May 21 21:03:44 2023 +0800
+| 
+|     Mobile styling for history page
+|   
+*   commit e7c445c18e37df1af75f25dc9d200a6e0e1d4cb7
+|\  Merge: 8f144c3 73dcba7
+| | Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| | Date:   Sun May 21 21:00:46 2023 +0800
+| | 
+| |     Merge branch 'main' of https://github.com/demstar16/cits3403-project
+| | 
+| * commit 73dcba770fe9932167e6835258209920b1c6d926
+| | Author: While-Luke <lukeellis3141@gmail.com>
+| | Date:   Sun May 21 20:34:20 2023 +0800
+| | 
+| |     cant get selenium to work
+| | 
+* | commit 8f144c3b350a9835af9eda433d05eb908cab441a
+| | Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| | Date:   Sun May 21 20:06:50 2023 +0800
+| | 
+| |     Update README
+| | 
+* | commit 8eff26cf0312eedc9bd96108ddfe85276644ff0d
+|/  Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+|   Date:   Sun May 21 20:06:41 2023 +0800
+|   
+|       Mobile Styling for Home Page
+| 
+* commit 3f7a93e3ff4ff8dfc73e1bc247ad19cc2c4a1336
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Sun May 21 18:40:36 2023 +0800
+| 
+|     more unit tests
+| 
+* commit e9b4eadeabee22e161dd49c3ecded90d6a1c69b1
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Sat May 20 19:51:47 2023 +0800
+| 
+|     added simplest unit test
+| 
+* commit 451227207da8bf5f4fdbbae689a2921c55821bc0
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Sat May 20 16:15:57 2023 +0800
+| 
+|     Changed home to new chat button
+| 
+* commit bf76dd4651f3b22a3feedccb644bf01fda20443e
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Sat May 20 15:49:02 2023 +0800
+| 
+|     small fixes
+| 
+* commit 768d3ea47cabd3baae8e43b8eebb9a4fc894c6ab
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Sat May 20 13:59:43 2023 +0800
+| 
+|     wait no, this should fix it
+| 
+* commit 8519a103ea5387707262574dd7d2f10086ac138a
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Sat May 20 13:58:08 2023 +0800
+| 
+|     users can no longer see any conversation
+| 
+* commit 89942c2002300aab9d818f92c450e3381362766f
+| Author: 23127639uwa <23127639@student.uwa.edu.au>
+| Date:   Sat May 20 05:13:24 2023 +0800
+| 
+|     Implement conversation renaming
+| 
+* commit 016d599b433394a66510a2e6274abbae1dfd9143
+| Author: 23127639uwa <23127639@student.uwa.edu.au>
+| Date:   Sat May 20 04:40:34 2023 +0800
+| 
+|     Reload page after deleting conversation
+| 
+* commit a931125ce578b8dd2f577680aa8f2ba3bb3bb36c
+| Author: 23127639uwa <23127639@student.uwa.edu.au>
+| Date:   Sat May 20 04:33:37 2023 +0800
+| 
+|     History page styling
+| 
+* commit 5a34218ea595098d53fa9e4d3cbeb4d41963797b
+| Author: 23127639uwa <23127639@student.uwa.edu.au>
+| Date:   Sat May 20 03:51:04 2023 +0800
+| 
+|     center history-conversation elements
+| 
+* commit ca08d5478614852d15999834befbab8ef438fe56
+| Author: 23127639uwa <23127639@student.uwa.edu.au>
+| Date:   Sat May 20 03:27:34 2023 +0800
+| 
+|     Change history from table to div structure
+| 
+* commit b418bc8fdf302a1d2c683221e0f1ab9d8c43ecd3
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Fri May 19 20:23:02 2023 +0800
+| 
+|     Conversations can now be added and deleted
+| 
+* commit 20981e6282823ae472d0116011efc88bf9af2855
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Fri May 19 13:10:15 2023 +0800
+| 
+|     conversations can now be saved and reloaded
+| 
+* commit 920e91ac9c5298dbca84ea417e808474292bcf83
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Thu May 18 13:48:59 2023 +0800
+| 
+|     Update README
+| 
+* commit 70cece4a6813708afb6911b88ce8609c1c3d3c71
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Thu May 18 13:47:47 2023 +0800
+| 
+|     added more test cases
+| 
+* commit 53601b0bba0320ee591a034ffc951d02830c7516
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Thu May 18 13:47:37 2023 +0800
+| 
+|     added html for flash messages
+|     
+|     even if they're not being displayed they're handy for testing
+| 
+* commit a41ad070fed5e89ba092eaba6392037ab8671dc9
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Thu May 18 13:47:05 2023 +0800
+| 
+|     added flash messages
+|     
+|     for testing purposes
+| 
+* commit 0ba8b7b029bbf0c3a445cf74fd2de86aee761b03
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Wed May 17 15:47:45 2023 +0800
+| 
+|     added a testing file
+|     
+|     only tests to make sure login and registered are rendered correctly.
+|     I need to be able to authenticate a user to check if history.html and index.html are rendered correctly
+| 
+* commit 017a6f8648a1aa1174829ba73edfaa865371bae9
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Wed May 17 15:46:39 2023 +0800
+| 
+|     deleted tests folder
+|     
+|     was proving to be difficult with imports so I just put the test file with everything else.
+| 
+* commit 7e0f3f83fcd217f5c24b37542b1ed45133510f82
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Wed May 17 15:45:59 2023 +0800
+| 
+|     added a test account for tests
+|     
+|     not sure if .gitignore well remove it but just for testing
+| 
+* commit 4aeffda775085f8adf41119e5b0a757018b2f6a7
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Wed May 17 15:03:18 2023 +0800
+| 
+|     edited bug to fix logout confirmation
+| 
+* commit 297ad8c1734cab462d868ea93d47f606408937b7
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Wed May 17 15:02:47 2023 +0800
+| 
+|     fixed a bug with logout confirmation
+| 
+* commit af71e0710328d6be8731e22e90c7b65b02648398
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Wed May 17 13:59:27 2023 +0800
+| 
+|     created testing suite for unit tests
+| 
+* commit 23496d16fb98c027de0aff42fec9e0b8482ae494
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Wed May 17 13:59:14 2023 +0800
+| 
+|     added pytest for unit tests
+| 
+* commit c143db4f2e11fc433e32d042144322cb6cd4a37b
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Wed May 17 13:50:24 2023 +0800
+| 
+|     added logout confirmation feature
+| 
+* commit 126cd183cf64126284dad4d48a6b1a15fb5196bf
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Wed May 17 12:18:50 2023 +0800
+| 
+|     styling changes
+| 
+* commit 4db141844442f83ad83016a92c3817e0577631ab
+| Author: Adam Wyatt <adam.wyatt@iinet.net.au>
+| Date:   Tue May 9 22:27:46 2023 +0800
+| 
+|     fixed flash popup for successful register and invalid logins
+| 
+* commit 5edf407ccdc6e8e23d85d972abdbe0cf4894c24a
+| Author: Adam Wyatt <adam.wyatt@iinet.net.au>
+| Date:   Mon May 8 21:15:51 2023 +0800
+| 
+|     fixed login buttons
+| 
+* commit 56f91c3b9ae1cf796c9d61ced6c2eef0e303ee69
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Sun May 7 14:54:19 2023 +0800
+| 
+|     made a very rough test for a new history page
+| 
+* commit 1638a5e323330ffd79b010ce66cd08c31217d90f
+| Author: 23127639uwa <23127639@student.uwa.edu.au>
+| Date:   Fri May 5 17:52:14 2023 +0800
+| 
+|     Clean up login page to match register page
+| 
+* commit 9f8bbee62cc61eccf6512d425e7fa0d3dfc48c27
+| Author: 23127639uwa <23127639@student.uwa.edu.au>
+| Date:   Fri May 5 15:56:10 2023 +0800
+| 
+|     Alter colour of chatbox window
+| 
+* commit c5512b291a7a3efaf0bb4e43624bcce3bb07fd36
+| Author: 23127639uwa <23127639@student.uwa.edu.au>
+| Date:   Fri May 5 15:31:47 2023 +0800
+| 
+|     Add comments
+|   
+*   commit dce821d66d4a805ef63e5f6e0885c2d978c1595a
+|\  Merge: bae0293 8eb680e
+| | Author: 23127639uwa <23127639@student.uwa.edu.au>
+| | Date:   Fri May 5 15:30:54 2023 +0800
+| | 
+| |     Merge branch 'main' of https://github.com/demstar16/cits3403-project
+| | 
+| * commit 8eb680e2689aa49b8ae4ab95ec2ea60d2a8bc7dd
+| | Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| | Date:   Fri May 5 14:19:53 2023 +0800
+| | 
+| |     added the functionality to display who is logged in
+| | 
+| * commit d2f445d841eb61ed38bc290d4bc6dbb05a012a52
+| | Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| | Date:   Fri May 5 13:11:20 2023 +0800
+| | 
+| |     Cleaned up for style and changed how the navbar works
+| |     
+| |     The navbar works the way I think it should now however I think there is code that's not needed in the if else statements. If anyone wants to check that.
+| | 
+| * commit 297b18c8274efacd6ebc9c1875a3c2b120d6250c
+| | Author: Dempsey Thompson <44187160+demstar16@users.noreply.github.com>
+| | Date:   Fri May 5 12:08:05 2023 +0800
+| | 
+| |     Update README
+| |     
+| |     added more stuff that needs to be done
+| | 
+* | commit bae02937865b66cdf97ad32d943a63b837c55d5e
+|/  Author: 23127639uwa <23127639@student.uwa.edu.au>
+|   Date:   Fri May 5 14:46:37 2023 +0800
+|   
+|       Clean up registration page
+| 
+* commit 90786122c27dc916692d6b88077618889042ae5b
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Fri May 5 10:54:56 2023 +0800
+| 
+|     Style / aesthetic changes
+| 
+* commit 10f1f22587474b4c2dd8121580ec936ee91b0116
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Fri May 5 10:48:55 2023 +0800
+| 
+|     Registration and login now working
+|   
+*   commit 44612ca14b094b2c5bd1050fdce262a03f1bf91f
+|\  Merge: 133622a 5b08233
+| | Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| | Date:   Mon May 1 08:39:52 2023 +0800
+| | 
+| |     Merge branch 'main' of https://github.com/demstar16/cits3403-project
+| | 
+| * commit 5b08233e1c36f6b2bcb87bed5bced6af6b99502f
+| | Author: Adam Wyatt <adam.wyatt@iinet.net.au>
+| | Date:   Fri Apr 28 20:54:54 2023 +0800
+| | 
+| |     added thinking message animation
+| | 
+| * commit 0706483530e2c2d587378e1fdf7f59ecb36a4f2b
+| | Author: Adam Wyatt <adam.wyatt@iinet.net.au>
+| | Date:   Fri Apr 28 20:44:10 2023 +0800
+| | 
+| |     added loading message and locked input while ExamGPT thinks
+| | 
+* | commit 133622a902f6857251c1ff118df6f179c79a51aa
+| | Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| | Date:   Mon May 1 08:39:47 2023 +0800
+| | 
+| |     Tried to change the database slightlly
+| |     
+| |     I described this in the last commit, it seemed to have worked but I'm not sure because it won't show up in the schema for database.db
+| | 
+* | commit 25470c58fb28f8bbd617a3ccb06d7c57a05f79cd
+|/  Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+|   Date:   Mon May 1 08:13:08 2023 +0800
+|   
+|       Updated Database structure
+|       
+|       Wanted a composite key in chat_message_data so that messages are defined by where they are in the conversation and the conversation itself.
+| 
+* commit dcd3be9171eca7033d3adabd5ecfe087164a3634
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Fri Apr 28 17:14:22 2023 +0800
+| 
+|     Updated database
+| 
+* commit c974c69d69625e1d64a3d23b45cb171f2cfbe97f
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Fri Apr 28 15:08:22 2023 +0800
+| 
+|     Refactored file names and directories
+| 
+* commit bdcde84c9d10747b282e18c4f7fe1d1186d973f2
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Thu Apr 27 18:47:06 2023 +0800
+| 
+|     more registration stuff
+| 
+* commit f3c1e0676ddc8064fa217c734e6fea8003c2b977
+| Author: Ay1tsMe <adam.wyatt@iinet.net.au>
+| Date:   Thu Apr 27 18:07:57 2023 +0800
+| 
+|     added navigation bar for all webpages
+|   
+*   commit 0844d757638609ceb910140d0a77132d8bfd5200
+|\  Merge: 8816dc9 81cf416
+| | Author: Ay1tsMe <adam.wyatt@iinet.net.au>
+| | Date:   Thu Apr 27 17:58:31 2023 +0800
+| | 
+| |     Merge branch 'main' of https://github.com/demstar16/cits3403-project
+| | 
+| * commit 81cf416726370e76324653a1ed610158e3e09814
+| | Author: 23127639uwa <23127639@student.uwa.edu.au>
+| | Date:   Thu Apr 27 08:43:39 2023 +0800
+| | 
+| |     Add register page
+| | 
+* | commit 8816dc9363640a98f000bef5e3a157b75ae96597
+| | Author: Ay1tsMe <adam.wyatt@iinet.net.au>
+| | Date:   Thu Apr 27 16:52:58 2023 +0800
+| | 
+| |     Added conversation history webpage and navigation bar
+| |     
+| | *   commit 576321247d1a5860b6e673b0d6241a7896388fc3 (refs/stash)
+| | |\  Merge: f274666 5ec53be
+| | | | Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| | | | Date:   Fri Apr 28 17:15:44 2023 +0800
+| | | | 
+| | | |     On database-development: !!GitHub_Desktop<database-development>
+| | | | 
+| | | * commit 5ec53be93d4b95e8161d556e1587cb5d58e52c7c
+| | |/  Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| | |   Date:   Fri Apr 28 17:15:44 2023 +0800
+| | |   
+| | |       index on database-development: f274666 Update database
+| | | 
+| | * commit f274666f0d1e1676df573a19045f907b227cde3a
+| | | Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| | | Date:   Fri Apr 28 16:46:38 2023 +0800
+| | | 
+| | |     Update database
+| | | 
+| | * commit 3c31e62a3bf423721710e1961ce01063ab91245d
+| |/  Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| |   Date:   Thu Apr 27 16:53:34 2023 +0800
+| |   
+| |       implemented basic storage of messages
+| | 
+| * commit 2aa652b2448cabe618ed9281f0c6a86a681d584c
+|/  Author: While-Luke <lukeellis3141@gmail.com>
+|   Date:   Thu Apr 27 16:37:25 2023 +0800
+|   
+|       fixed error
+| 
+* commit 8b7d94b6cb89e410c2a7e01c4c4be6ad698d1ad4
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Thu Apr 27 16:28:44 2023 +0800
+| 
+|     started adding functions for registration
+|   
+*   commit 546b988e024c1a746c0a6b2f2162688fdcac6b61
+|\  Merge: ecfbb77 6df8e1c
+| | Author: 23127639uwa <23127639@student.uwa.edu.au>
+| | Date:   Thu Apr 27 08:19:08 2023 +0800
+| | 
+| |     Merge branch 'main' of https://github.com/demstar16/cits3403-project
+| | 
+| * commit 6df8e1c9835ce35da3479d909eceb29c75f1c8df
+| | Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| | Date:   Thu Apr 27 15:48:29 2023 +0800
+| | 
+| |     Created database file
+| | 
+| * commit 2f8f05b6c524f34ab8b04728f50bcf9da8c48b77
+| | Author: Ay1tsMe <adam.wyatt@iinet.net.au>
+| | Date:   Thu Apr 27 14:44:14 2023 +0800
+| | 
+| |     Edited starting message
+| | 
+* | commit ecfbb771846342ae75c3d16855a29f33716507bc
+|/  Author: 23127639uwa <23127639@student.uwa.edu.au>
+|   Date:   Thu Apr 27 08:18:35 2023 +0800
+|   
+|       Add app explanation, clean up login fields
+| 
+* commit c9963f1094f4eddd66d0fb5fa2b04313cf6d2525
+| Author: While-Luke <lukeellis3141@gmail.com>
+| Date:   Wed Apr 26 11:49:20 2023 +0800
+| 
+|     added simple login page
+| 
+* commit 1d02fbd887721c9e32fe168938dbd11e34e60a65
+| Author: Adam Wyatt <adam.wyatt@iinet.net.au>
+| Date:   Tue Apr 25 21:58:23 2023 +0800
+| 
+|     changed starting text
+| 
+* commit d793c6dd99dcd1ac45a99a13c2ec7660cfa73039
+| Author: Adam Wyatt <adam.wyatt@iinet.net.au>
+| Date:   Tue Apr 25 21:57:19 2023 +0800
+| 
+|     fixed message container size
+| 
+* commit 1f900c690d3be958c6e831d380b6f9c99fa9f50a
+| Author: Adam Wyatt <adam.wyatt@iinet.net.au>
+| Date:   Tue Apr 25 21:56:05 2023 +0800
+| 
+|     fixed scroll to bottom on chatbox
+| 
+* commit 7edd89d70c20fb6f9ce5ba23f3b1b3816057107c
+| Author: Adam Wyatt <adam.wyatt@iinet.net.au>
+| Date:   Tue Apr 25 21:55:11 2023 +0800
+| 
+|     added print statements for developer monitoring
+| 
+* commit c425743a954f2f800506a7da1647758785bb1b4a
+| Author: Adam Wyatt <adam.wyatt@iinet.net.au>
+| Date:   Tue Apr 25 19:33:56 2023 +0800
+| 
+|     added gpt_api to webpage
+| 
+* commit cef560d3604fa80ac486c53a6dd947179dd606a5
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Tue Apr 25 17:32:26 2023 +0800
+| 
+|     Incorporate chatGPT into flask app
+| 
+* commit 06299e6edbf4c90b10dcda9d2874020eff57b6e2
+| Author: Ay1tsMe <adam.wyatt@iinet.net.au>
+| Date:   Mon Apr 24 23:16:18 2023 +0800
+| 
+|     added openai dependency
+| 
+* commit 507781234f7cb23057f140ed140f8eb1c527e777
+| Author: Ay1tsMe <adam.wyatt@iinet.net.au>
+| Date:   Mon Apr 24 23:07:38 2023 +0800
+| 
+|     added Windows instructions
+| 
+* commit ffc0bfb9b634c9843b4081fb2419d12361194559
+| Author: Ay1tsMe <adam.wyatt@iinet.net.au>
+| Date:   Mon Apr 24 23:04:35 2023 +0800
+| 
+|     added Windows instructions
+| 
+* commit 4d7fe0c454ad73376647281d0729e6650867476d
+| Author: Ay1tsMe <adam.wyatt@iinet.net.au>
+| Date:   Mon Apr 24 22:57:14 2023 +0800
+| 
+|     added requirements and ignore flags
+| 
+* commit 38797c4c221b1d347ffe05bf7a47a1579fe41a49
+| Author: Ay1tsMe <adam.wyatt@iinet.net.au>
+| Date:   Mon Apr 24 22:53:35 2023 +0800
+| 
+|     adjusted git to work for our own virtual environments
+| 
+* commit 03347dfa19a215616fa978bf6d197e74c4db046c
+| Author: Adam Wyatt <adam.wyatt@iinet.net.au>
+| Date:   Sun Apr 23 15:46:38 2023 +0800
+| 
+|     added GPT3.5 api
+| 
+* commit aa5cdf90fc0870ea74f6bc79bcb94c027d4f680e
+| Author: Adam Wyatt <adam.wyatt@iinet.net.au>
+| Date:   Sun Apr 23 15:20:45 2023 +0800
+| 
+|     added GPT3.5 api
+| 
+* commit 88173a7f7bcb8543c673aac8b8c734d6944edd7b
+| Author: demstar16 <44187160+demstar16@users.noreply.github.com>
+| Date:   Fri Apr 21 13:54:37 2023 +0800
+| 
+|     base of the project
+| 
+* commit 17e64911778a2a3a51e1bf5f13c5a8fa2772c0fc
+  Author: Dempsey Thompson <44187160+demstar16@users.noreply.github.com>
+  Date:   Wed Mar 8 12:10:42 2023 +0800
+  
+      Initial commit
