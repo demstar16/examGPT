@@ -227,8 +227,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 84%;
-  margin-left: 100px auto;
-  margin-right: 100px auto;
+  margin: 0 100px auto;
   margin-top: 30px;
   z-index: 2;
 }
