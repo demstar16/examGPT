@@ -8,6 +8,7 @@ function newConversation() {
   })
   .then((response) => response.json())
   .then((data) => {
+    // Display new conversation on the page
     displayConversation("New Conversation", data["id"]);
   })
   .catch((error) => {
@@ -29,7 +30,7 @@ function renameConversation(conversationId, button) {
     console.error("Error:", error);
   });
 
-  // Rename conversation from page
+  // Rename conversation in the page
   div = button.parentNode;
   p = div.firstElementChild ;
   p.innerHTML = newName;
@@ -60,27 +61,33 @@ function deleteConversation(conversationId, button) {
 newConversationButton.addEventListener("click", newConversation);
 
 function displayConversation(conversationName, conversationId) {
+  // Div to contain the conversation
   const div = document.createElement("div");
   div.classList.add("history-conversation");
 
+  // P that contains the conversation name
   const p = document.createElement("p");
   p.innerHTML = conversationName;
 
+  // Rename button
   const rename = document.createElement("button");
   rename.classList.add("history-rename-button");
   rename.onclick = function () {renameConversation(conversationId, rename)};
   rename.innerHTML = "Rename";
 
+  // Continue button
   const a = document.createElement("a");
   a.style.textAlign = "center";
   a.href = `/index/${conversationId}`;
   a.innerHTML = "Continue";
 
+  // Delete button
   const delet = document.createElement("button");
   delet.classList.add("history-delete-button");
   delet.onclick = function () {deleteConversation(conversationId, delet)};
   delet.innerHTML = "Delete";
 
+  // Add all elements to the div
   div.appendChild(p)
   div.appendChild(rename)
   div.appendChild(a)

@@ -12,10 +12,5 @@ def ExamGPT_conversation(conversation):
         model = model_id,
         messages = conversation
     )
-    # api_usage = response["usage"]
-    # print("Total token consumed: {0}".format(api_usage["total_tokens"]))
-    # Stop means complete
-    # print(response["choices"][0].finish_reason)
-    # print(response["choices"][0].index)
     conversation.append({"role": response.choices[0].message.role, "content": response.choices[0].message.content})
     return conversation
