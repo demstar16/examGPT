@@ -28,9 +28,11 @@ class conversation_data(db.Model):
     def __repr__(self):
         return '<Conversation {}>'.format(self.conversation_name)
     
+    # Returns all the messages of the current conversation ordered by their message number
     def get_messages(self):
         return chat_message_data.query.filter_by(conversation_id=self.conversation_id).order_by(chat_message_data.message_number).all()
     
+    # Add a message to the current conversation
     def add_message(self, message, sender):
         number = len(self.get_messages())
         m = chat_message_data(conversation_id=self.conversation_id, message_number=number, sender=sender, message=message)
@@ -42,7 +44,7 @@ class chat_message_data(db.Model):
     conversation_id = db.Column(db.Integer, db.ForeignKey('conversation_data.conversation_id'))
     message_number = db.Column(db.Integer)
     sender = db.Column(db.String(8)) #Either User, Chatbot or System
-    message = db.Column(db.String(1024)) #Whats the max message length?
+    message = db.Column(db.String(1024))
 
     def __repr__(self):
         return '<Message {}>'.format(self.message)

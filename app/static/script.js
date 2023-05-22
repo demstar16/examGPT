@@ -22,7 +22,7 @@ function sendMessage() {
     let cid = url[url.length-1];
 
     // Send the message to the chatbot
-    // a function inside "app.py"
+    // a function inside "__init__.py"
     fetch(`/chatbot/${cid}`, {
       method: "POST",
       headers: {
@@ -69,10 +69,10 @@ function displayMessage(sender, message, isUser) {
   const messageDiv = document.createElement("div");
   messageDiv.classList.add("chatbox-message");
 
-  if (isUser) {
+  if (isUser) { // Add user message to page
     messageDiv.classList.add("chatbox-message-user");
     messageDiv.innerHTML = `<p class="chatbox-message-user-internal">${sender}: ${formattedMessage}</p>`;
-  } else {
+  } else { // Add bot message to page
     messageDiv.classList.add("chatbox-message-chatbot");
     messageDiv.innerHTML = `<p class="chatbox-message-chatbot-internal">${sender}: ${formattedMessage}</p>`;
   }

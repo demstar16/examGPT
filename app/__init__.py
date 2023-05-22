@@ -75,19 +75,19 @@ def register():
 def history():
     return render_template('history.html', email=current_user.email, conversations=current_user.conversations)
 
-#logout current user
+# logout current user
 @app.route('/logout')
 def logout():
     logout_user()
     flash("You have been logged out")
     return redirect(url_for('login'))
 
+
 # Initialize the conversation
 system_prompt = {
     "role": "system",
     "content": "Your name is ExamGPT. You are a chat bot that generates exam questions and helps students with their exam problems. If a student gives you a topic, you reply with exam questions. If they ask you a question, you will help them solve their exam question."
 }
-
 
 # function for the chatbot
 @app.route('/chatbot/<conversation_id>', methods=['POST'])
@@ -103,7 +103,7 @@ def chatbot(conversation_id):
     prompts = []
     prompts.append(system_prompt)
     for messages in conversation.get_messages():
-        # May want to change all code where "chatbot" is written to "assistant"
+        # Have to change sender from "chatbot" to "assistant" before sending to openai
         prompt = {"role": messages.sender if messages.sender != "chatbot" else "assistant", "content": messages.message}
         prompts.append(prompt)
 
@@ -118,6 +118,7 @@ def chatbot(conversation_id):
 
     return jsonify({'message': response})
 
+# add new conversation to database
 @app.route('/newConversation', methods=['POST'])
 def newConversation():
     conversation = conversation_data(customer_id=current_user.customer_id, conversation_name="New Conversation")
@@ -125,6 +126,7 @@ def newConversation():
     db.session.commit()
     return jsonify({'id': conversation.conversation_id})
 
+# delete conversation and all its related messages from database
 @app.route('/deleteConversation', methods=['DELETE'])
 def deleteConversation():
     conversation_id = request.json['conversationId']
@@ -133,6 +135,7 @@ def deleteConversation():
     db.session.commit()
     return 'ok'
 
+# rename conversation in database
 @app.route('/renameConversation', methods=['PATCH'])
 def renameConversation():
     conversation_id = request.json['conversationId']
