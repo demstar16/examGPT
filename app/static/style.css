@@ -51,13 +51,13 @@ body {
 .login-container {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  max-width: 100%;
+  width: 70%;
   box-sizing: border-box;
   padding: 20px;
   font-size: 20px;
   margin-top: 30px;
-  margin-left: 150px; /* Added margin to avoid touching the sides */
-  margin-right: 150px; /* Added margin to avoid touching the sides */
+  margin-left: 30%;
+  margin-right: 30%;
   color: white;
 }
 
@@ -101,7 +101,7 @@ body {
   outline: none;
   position: relative;
   overflow: hidden;
-  width: 458px;
+  width: 101%;
 }
 
 .login-buttons:after {
