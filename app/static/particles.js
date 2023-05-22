@@ -2,6 +2,7 @@ const NUM_PARTICLES = 50;
 const PARTICLE_SIZE = 10;
 
 const particles = [];
+const backgroundParticlesContainer = document.querySelector('.background-particles');
 
 document.addEventListener('mousedown', (event) => {
   for (let i = 0; i < particles.length; i++) {
@@ -37,7 +38,7 @@ function createParticle() {
     const pastel = `hsl(${hue}, 50%, 80%)`;
     particle.style.backgroundColor = pastel;
 
-    document.body.appendChild(particle);
+    backgroundParticlesContainer.appendChild(particle);
     particles.push(particle);
   }
   
