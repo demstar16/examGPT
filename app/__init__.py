@@ -73,7 +73,7 @@ def register():
 @app.route('/history')
 @login_required
 def history():
-    return render_template('history2.html', email=current_user.email, conversations=current_user.conversations)
+    return render_template('history.html', email=current_user.email, conversations=current_user.conversations)
 
 #logout current user
 @app.route('/logout')
